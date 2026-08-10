@@ -22,15 +22,23 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
 
-      - name: Check templates
+      - name: Check SVG templates
         run: |
 
           if [ ! -d "sfos-icons" ]; then
-            echo "sfos-icons directory missing"
+            echo "sfos-icons missing"
             exit 1
           fi
 
-          find sfos-icons -name "*.svg"
+
+          COUNT=$(find sfos-icons -name "*.svg" | wc -l)
+
+          echo "Templates: $COUNT"
+
+
+          if [ "$COUNT" -lt 16 ]; then
+            exit 1
+          fi
 
 
       - name: Install OpenCode CLI
@@ -45,7 +53,18 @@ jobs:
           opencode --version
 
 
-      - name: Run OpenCode Icon Designer
+      - name: Prepare output
+        run: |
+
+          rm -rf output
+
+          mkdir -p output
+
+          chmod 777 output
+
+
+
+      - name: Run OpenCode
         run: |
 
           export PATH="$HOME/.opencode/bin:$PATH"
@@ -65,101 +84,103 @@ jobs:
 
 
 
-          你的任务：
+          =========================
 
-          设计SFOS风格图标集合。
+          任务
 
-
-
-          =====================
-
-          模板要求
-
-          =====================
+          =========================
 
 
-          必须使用：
+          使用：
 
           sfos-icons/
 
 
-          里面已有SVG作为基础模板。
+          中已有SVG模板。
 
 
-          模板文件：
+          设计一套新的SFOS风格SVG图标。
 
-          shape1.svg
 
-          shape2.svg
+
+          输出目录：
+
+          output/
+
+
+
+          =========================
+
+          模板规则
+
+          =========================
+
+
+          模板：
+
+          sfos-icons/shape1.svg
+
+          sfos-icons/shape2.svg
 
           ...
 
-          shape16.svg
+          sfos-icons/shape16.svg
 
 
 
-          每个新图标必须基于这些SVG。
-
+          必须基于这些模板设计。
 
 
           不允许：
 
-          从零创建SVG。
+          创建新的SVG外形。
 
-          改变shape外形。
+          从零绘制path。
 
-          删除path。
+          修改模板文件。
 
-          修改viewBox。
-
-          修改SVG尺寸比例。
+          覆盖sfos-icons。
 
 
 
-          =====================
+          =========================
 
-          创意设计
+          输出文件
 
-          =====================
-
-
-          自由发挥设计。
+          =========================
 
 
-          根据SFOS系统风格：
+          输出：
 
-          - 简洁
-          - 圆润
-          - 高级感
-          - 现代移动UI风格
+          output/shape1.svg
 
+          output/shape2.svg
 
-          为每个shape设计不同主题。
+          ...
 
-
-          可以设计：
-
-          科技
-
-          游戏
-
-          多媒体
-
-          系统工具
-
-          网络
-
-          AI
-
-          未来风格
+          output/shape16.svg
 
 
 
-          =====================
+          保持文件名对应。
 
-          SVG修改规则
 
-          =====================
+
+          =========================
+
+          SVG设计规则
+
+          =========================
+
+
+          保留：
+
+          原SVG结构。
+
+          原path。
+
+          原viewBox。
+
 
 
           只能修改：
@@ -167,13 +188,13 @@ jobs:
           原SVG黑色区域。
 
 
+          黑色区域：
 
-          黑色区域可以：
+          可以重新设计颜色。
 
-          - 改颜色
-          - 使用gradient
-          - 增加光泽
-          - 增加细节纹理
+          可以增加渐变。
+
+          可以增加光泽。
 
 
           非黑色区域：
@@ -183,29 +204,66 @@ jobs:
 
           禁止：
 
-          添加背景。
+          增加背景。
 
-          添加底板。
+          增加底色。
 
-          添加矩形填充透明区域。
+          添加矩形。
 
-          破坏原始透明结构。
-
-
-
-          =====================
-
-          渐变要求
-
-          =====================
+          填充透明区域。
 
 
-          推荐使用：
 
-          linearGradient
+          =========================
+
+          SFOS设计风格
+
+          =========================
 
 
-          方向：
+          自由发挥。
+
+
+          设计方向：
+
+          - Sailfish OS
+          - 极简
+          - 圆润
+          - 高级移动系统
+          - 未来科技感
+
+
+          每个shape应该有独特视觉。
+
+
+          可以使用：
+
+          蓝色
+
+          青色
+
+          紫色
+
+          绿色
+
+          橙色
+
+          金属色
+
+
+
+          =========================
+
+          渐变
+
+          =========================
+
+
+          推荐：
+
+
+          linearGradient:
+
 
           x1=0
 
@@ -219,7 +277,8 @@ jobs:
 
           高光：
 
-          radialGradient
+
+          radialGradient:
 
 
           cx=0.25
@@ -230,58 +289,50 @@ jobs:
 
 
 
-          白色高光：
+          白色：
 
           #FFFFFF
 
 
           opacity:
 
-          0.55 到 0
+          0.55 -> 0
 
 
 
-          =====================
+          =========================
 
-          输出
+          SVG尺寸
 
-          =====================
-
-
-          将设计完成的SVG保存回：
-
-          sfos-icons/
+          =========================
 
 
           保持：
 
-          shape1.svg
-
-          shape2.svg
-
-          ...
-
-          shape16.svg
+          86x86
 
 
 
-          文件名不改变。
+          =========================
+
+          完成检查
+
+          =========================
 
 
+          确认：
 
-          =====================
+          output/
 
-          质量要求
-
-          =====================
+          存在16个SVG。
 
 
           每个SVG：
 
-          - 可以直接用于SailfishOS图标
-          - 保持透明背景
-          - 保持原shape轮廓
-          - 视觉统一
+          - 可用于SFOS
+          - 背景透明
+          - 使用原shape结构
+          - 没有外部依赖
 
 
           完成后退出。
@@ -289,19 +340,23 @@ jobs:
           "
 
 
-      - name: Verify SVG
+
+      - name: Verify output
         run: |
 
-          find sfos-icons -name "*.svg" -type f | sort
+          ls -lah output
 
-          COUNT=$(find sfos-icons -name "*.svg" | wc -l)
 
-          echo "SVG count: $COUNT"
+          COUNT=$(find output -name "*.svg" | wc -l)
+
+
+          echo "Generated: $COUNT"
 
 
           if [ "$COUNT" -lt 16 ]; then
             exit 1
           fi
+
 
 
       - name: Commit and push
@@ -312,7 +367,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
 
-          git add sfos-icons
+          git add output/
 
 
           if git diff --cached --quiet; then
@@ -325,7 +380,7 @@ jobs:
 
 
           git commit \
-            -m "OpenCode redesigned SFOS icon templates"
+            -m "OpenCode generated SFOS icon designs"
 
 
           git push

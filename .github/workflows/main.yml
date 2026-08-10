@@ -3,13 +3,11 @@ name: OpenCode sfos icons designer
 on:
   workflow_dispatch:
 
-  #schedule:
-  #  - cron: "0 */2 * * *"
-
+  # schedule:
+  #   - cron: "0 */2 * * *"
 
 permissions:
   contents: write
-
 
 jobs:
 
@@ -18,16 +16,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
-
     steps:
-
 
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
-
 
 
       - name: Check games-web
@@ -38,17 +33,13 @@ jobs:
             exit 1
           fi
 
-
           COUNT=$(find games-web -type f -name "*.html" | wc -l)
 
           echo "HTML games: $COUNT"
 
-
           if [ "$COUNT" -lt 1 ]; then
             exit 1
           fi
-
-
 
 
       - name: Download SVG templates
@@ -56,12 +47,10 @@ jobs:
 
           rm -rf icon-templates
 
-
           git clone \
             --depth 1 \
             https://github.com/gmicroul/icon-templates.git \
             icon-templates
-
 
 
           if [ ! -d "icon-templates/sfos-icons" ]; then
@@ -69,10 +58,7 @@ jobs:
             exit 1
           fi
 
-
           ls icon-templates/sfos-icons
-
-
 
 
       - name: Install OpenCode CLI
@@ -80,19 +66,13 @@ jobs:
 
           curl -fsSL https://opencode.ai/install | bash
 
+          echo "$HOME/.opencode/bin" >> "$GITHUB_PATH"
 
           export PATH="$HOME/.opencode/bin:$PATH"
 
-
-          echo "$HOME/.opencode/bin" >> "$GITHUB_PATH"
-
-
           which opencode
 
-
           opencode --version
-
-
 
 
       - name: Prepare output
@@ -105,12 +85,8 @@ jobs:
           chmod 777 output
 
 
-
-
       - name: Run OpenCode
-
         run: |
-
 
           export PATH="$HOME/.opencode/bin:$PATH"
 
@@ -122,14 +98,16 @@ jobs:
           不执行git操作。
 
 
-
           当前仓库：
 
           $PWD
 
 
 
-          任务：
+          =====================
+          任务
+          =====================
+
 
           生成：
 
@@ -137,18 +115,26 @@ jobs:
 
 
 
+          同时为每个游戏生成个性化SVG图标。
+
+
+          SVG模板来源：
+
+          icon-templates/sfos-icons/
+
+
+          仓库：
+
+          https://github.com/gmicroul/icon-templates/tree/main/sfos-icons
+
 
 
           =====================
-
           游戏扫描
-
           =====================
-
 
 
           扫描：
-
 
           games-web/
 
@@ -158,8 +144,8 @@ jobs:
           *.html
 
 
-
           按文件路径排序。
+
 
 
           每个游戏：
@@ -175,43 +161,29 @@ jobs:
           作为游戏名称。
 
 
-
           没有title：
 
           使用文件名。
 
 
 
-
-          游戏链接必须：
+          游戏链接：
 
           /games-web/文件名.html
 
 
 
-
-
           =====================
-
-          图标系统
-
+          图标设计规则
           =====================
 
 
-
-          不生成新的SVG。
-
-
-          不设计图标。
-
-
-          使用已有模板：
-
+          必须使用：
 
           icon-templates/sfos-icons/
 
 
-          文件：
+          中的：
 
           shape1.svg
 
@@ -223,103 +195,139 @@ jobs:
 
 
 
-          循环使用：
+          每个游戏循环选择模板。
 
 
-          游戏1:
-
-          shape1.svg
+          不允许创建新的SVG外形。
 
 
-          游戏2:
-
-          shape2.svg
+          不允许重新绘制shape。
 
 
-          ...
+          不允许修改：
 
+          path
 
-          游戏16:
+          viewBox
 
-          shape16.svg
+          SVG结构
 
-
-          游戏17:
-
-          shape1.svg
-
+          尺寸比例
 
 
 
           =====================
-
-          SVG处理
-
+          SVG个性化
           =====================
 
 
-
-          保留原SVG结构。
-
-
-          只允许修改：
-
-          黑色区域fill。
+          每个游戏必须生成独特效果。
 
 
+          只能修改：
 
-          透明区域必须保持透明。
+          原SVG里面黑色区域。
 
+
+          黑色区域：
+
+          fill可以替换。
+
+
+          非黑色区域：
+
+          必须保持完全透明。
 
 
           禁止：
 
           添加背景。
 
-          修改path。
+          添加矩形。
 
-          修改viewBox。
+          添加圆形底板。
 
-          重新绘制shape。
+          修改透明区域。
+
+          修改原始路径。
 
 
 
-          SVG尺寸：
+          图标尺寸：
 
           86x86
 
 
 
+          =====================
+          游戏主题颜色
+          =====================
 
 
-          填充：
-
-          linearGradient:
+          根据游戏名称和html内容判断主题。
 
 
-          x1=0
-
-          y1=0
-
-          x2=1
-
-          y2=1
+          为每个游戏选择不同颜色方案。
 
 
+          黑色区域允许使用：
 
-          颜色：
+          linearGradient
 
-          #5FD0F5
+          radialGradient
 
-          到
-
-          #3AA8D0
+          纯色fill
 
 
 
+          保留SFOS风格。
 
 
-          高光：
+          颜色应该：
+
+          明亮。
+
+          现代。
+
+          游戏化。
+
+
+
+          示例：
+
+          科幻游戏：
+
+          蓝色/紫色
+
+
+          森林游戏：
+
+          绿色
+
+
+          火焰游戏：
+
+          红橙色
+
+
+          水相关：
+
+          青蓝色
+
+
+
+          =====================
+          高光效果
+          =====================
+
+
+          可以增加高光。
+
+
+          只能作用于：
+
+          原黑色区域。
+
 
           radialGradient:
 
@@ -343,19 +351,19 @@ jobs:
 
 
 
+          不允许覆盖透明区域。
+
 
 
           =====================
-
-          文字
-
+          Logo文字
           =====================
 
 
-
-          如果没有logo：
+          如果游戏html没有logo图片：
 
           使用游戏名称首字母。
+
 
 
           文字：
@@ -369,7 +377,6 @@ jobs:
           居中。
 
 
-
           字体：
 
           system-ui
@@ -381,47 +388,84 @@ jobs:
           29px
 
 
-
           颜色：
 
           #FFFFFF
 
 
 
+          文字只能放在：
+
+          原黑色区域范围内。
+
 
 
           =====================
-
-          页面
-
+          图标嵌入
           =====================
 
 
+          所有SVG必须：
 
-          生成现代游戏大厅。
+          直接内嵌到：
+
+          output/index.html
+
+
+
+          禁止：
+
+          外部svg文件。
+
+          base64图片。
+
+          CDN。
+
+
+
+          =====================
+          页面设计
+          =====================
+
+
+          创建现代SFOS风格游戏大厅。
+
 
 
           必须包含：
 
 
-          - 手机两列布局
+          手机：
 
-          - PC响应式布局
+          两列布局。
 
-          - 搜索框
 
-          - 实时过滤
 
-          - 游戏数量统计
+          PC：
 
-          - 点击卡片打开游戏
+          自适应多列布局。
 
+
+
+          功能：
+
+
+          搜索框。
+
+
+          实时过滤。
+
+
+          游戏数量统计。
+
+
+          点击卡片打开游戏。
 
 
 
           卡片：
 
-          手机：
+          手机尺寸：
 
           108x108px
 
@@ -439,27 +483,22 @@ jobs:
 
 
 
-
-
           =====================
-
           技术限制
-
           =====================
 
 
-
-          index.html必须独立运行。
-
+          output/index.html必须独立运行。
 
 
-          CSS:
+
+          CSS：
 
           内嵌。
 
 
 
-          JavaScript:
+          JavaScript：
 
           内嵌。
 
@@ -467,26 +506,17 @@ jobs:
 
           禁止：
 
-          CDN
+          CDN。
 
-          外部JS
+          外部JS。
 
-          外部CSS
-
-
-
-          SVG:
-
-          必须内嵌。
+          外部CSS。
 
 
 
           =====================
-
-          安全
-
+          文件保护
           =====================
-
 
 
           不修改：
@@ -499,11 +529,10 @@ jobs:
           任何文件。
 
 
+
           只生成：
 
           output/index.html
-
-
 
 
 
@@ -512,31 +541,21 @@ jobs:
           "
 
 
-
-
       - name: Verify
-
         run: |
-
 
           ls -lah output
 
-
           test -f output/index.html
 
-
           grep "<html" output/index.html
-
 
           grep "games-web" output/index.html
 
 
-
           COUNT=$(find games-web -type f -name "*.html" | wc -l)
 
-
           echo "Games: $COUNT"
-
 
 
           if [ "$COUNT" -lt 1 ]; then
@@ -544,22 +563,15 @@ jobs:
           fi
 
 
-
-
-
       - name: Commit and push
-
         run: |
-
 
           git config user.name "github-actions[bot]"
 
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
 
-
           git add output/index.html
-
 
 
           if git diff --cached --quiet; then
@@ -571,10 +583,8 @@ jobs:
           fi
 
 
-
           git commit \
-            -m "Update OpenCode games navigation"
-
+            -m "Update OpenCode generated SFOS game icons"
 
 
           git push

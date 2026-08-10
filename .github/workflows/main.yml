@@ -1,0 +1,580 @@
+name: OpenCode sfos icons designer
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: "0 */2 * * *"
+
+
+permissions:
+  contents: write
+
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+
+    steps:
+
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+
+
+      - name: Check games-web
+        run: |
+
+          if [ ! -d "games-web" ]; then
+            echo "games-web directory not found"
+            exit 1
+          fi
+
+
+          COUNT=$(find games-web -type f -name "*.html" | wc -l)
+
+          echo "HTML games: $COUNT"
+
+
+          if [ "$COUNT" -lt 1 ]; then
+            exit 1
+          fi
+
+
+
+
+      - name: Download SVG templates
+        run: |
+
+          rm -rf icon-templates
+
+
+          git clone \
+            --depth 1 \
+            https://github.com/gmicroul/icon-templates.git \
+            icon-templates
+
+
+
+          if [ ! -d "icon-templates/sfos-icons" ]; then
+            echo "SVG templates missing"
+            exit 1
+          fi
+
+
+          ls icon-templates/sfos-icons
+
+
+
+
+      - name: Install OpenCode CLI
+        run: |
+
+          curl -fsSL https://opencode.ai/install | bash
+
+
+          export PATH="$HOME/.opencode/bin:$PATH"
+
+
+          echo "$HOME/.opencode/bin" >> "$GITHUB_PATH"
+
+
+          which opencode
+
+
+          opencode --version
+
+
+
+
+      - name: Prepare output
+        run: |
+
+          rm -rf output
+
+          mkdir -p output
+
+          chmod 777 output
+
+
+
+
+      - name: Run OpenCode
+
+        run: |
+
+
+          export PATH="$HOME/.opencode/bin:$PATH"
+
+
+          timeout 25m opencode run "
+
+          不要询问。
+
+          不执行git操作。
+
+
+
+          当前仓库：
+
+          $PWD
+
+
+
+          任务：
+
+          生成：
+
+          output/index.html
+
+
+
+
+
+          =====================
+
+          游戏扫描
+
+          =====================
+
+
+
+          扫描：
+
+
+          games-web/
+
+
+          所有：
+
+          *.html
+
+
+
+          按文件路径排序。
+
+
+          每个游戏：
+
+          读取html。
+
+
+          提取：
+
+          <title>
+
+
+          作为游戏名称。
+
+
+
+          没有title：
+
+          使用文件名。
+
+
+
+
+          游戏链接必须：
+
+          /games-web/文件名.html
+
+
+
+
+
+          =====================
+
+          图标系统
+
+          =====================
+
+
+
+          不生成新的SVG。
+
+
+          不设计图标。
+
+
+          使用已有模板：
+
+
+          icon-templates/sfos-icons/
+
+
+          文件：
+
+          shape1.svg
+
+          shape2.svg
+
+          ...
+
+          shape16.svg
+
+
+
+          循环使用：
+
+
+          游戏1:
+
+          shape1.svg
+
+
+          游戏2:
+
+          shape2.svg
+
+
+          ...
+
+
+          游戏16:
+
+          shape16.svg
+
+
+          游戏17:
+
+          shape1.svg
+
+
+
+
+          =====================
+
+          SVG处理
+
+          =====================
+
+
+
+          保留原SVG结构。
+
+
+          只允许修改：
+
+          黑色区域fill。
+
+
+
+          透明区域必须保持透明。
+
+
+
+          禁止：
+
+          添加背景。
+
+          修改path。
+
+          修改viewBox。
+
+          重新绘制shape。
+
+
+
+          SVG尺寸：
+
+          86x86
+
+
+
+
+
+          填充：
+
+          linearGradient:
+
+
+          x1=0
+
+          y1=0
+
+          x2=1
+
+          y2=1
+
+
+
+          颜色：
+
+          #5FD0F5
+
+          到
+
+          #3AA8D0
+
+
+
+
+
+          高光：
+
+          radialGradient:
+
+
+          cx=0.25
+
+          cy=0.25
+
+          r=0.6
+
+
+
+          白色：
+
+          #FFFFFF
+
+
+          opacity:
+
+          0.55 -> 0
+
+
+
+
+
+          =====================
+
+          文字
+
+          =====================
+
+
+
+          如果没有logo：
+
+          使用游戏名称首字母。
+
+
+          文字：
+
+          x=43
+
+          y=47
+
+
+
+          居中。
+
+
+
+          字体：
+
+          system-ui
+
+
+          bold
+
+
+          29px
+
+
+
+          颜色：
+
+          #FFFFFF
+
+
+
+
+
+          =====================
+
+          页面
+
+          =====================
+
+
+
+          生成现代游戏大厅。
+
+
+          必须包含：
+
+
+          - 手机两列布局
+
+          - PC响应式布局
+
+          - 搜索框
+
+          - 实时过滤
+
+          - 游戏数量统计
+
+          - 点击卡片打开游戏
+
+
+
+
+          卡片：
+
+          手机：
+
+          108x108px
+
+
+
+          图标：
+
+          86x86px
+
+
+
+          圆角：
+
+          20px
+
+
+
+
+
+          =====================
+
+          技术限制
+
+          =====================
+
+
+
+          index.html必须独立运行。
+
+
+
+          CSS:
+
+          内嵌。
+
+
+
+          JavaScript:
+
+          内嵌。
+
+
+
+          禁止：
+
+          CDN
+
+          外部JS
+
+          外部CSS
+
+
+
+          SVG:
+
+          必须内嵌。
+
+
+
+          =====================
+
+          安全
+
+          =====================
+
+
+
+          不修改：
+
+          games-web/
+
+
+          不删除：
+
+          任何文件。
+
+
+          只生成：
+
+          output/index.html
+
+
+
+
+
+          完成后退出。
+
+          "
+
+
+
+
+      - name: Verify
+
+        run: |
+
+
+          ls -lah output
+
+
+          test -f output/index.html
+
+
+          grep "<html" output/index.html
+
+
+          grep "games-web" output/index.html
+
+
+
+          COUNT=$(find games-web -type f -name "*.html" | wc -l)
+
+
+          echo "Games: $COUNT"
+
+
+
+          if [ "$COUNT" -lt 1 ]; then
+            exit 1
+          fi
+
+
+
+
+
+      - name: Commit and push
+
+        run: |
+
+
+          git config user.name "github-actions[bot]"
+
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+
+
+          git add output/index.html
+
+
+
+          if git diff --cached --quiet; then
+
+            echo "No changes"
+
+            exit 0
+
+          fi
+
+
+
+          git commit \
+            -m "Update OpenCode games navigation"
+
+
+
+          git push

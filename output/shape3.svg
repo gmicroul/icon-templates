@@ -1,36 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="86" height="86" viewBox="0 0 86 86" xmlns="http://www.w3.org/2000/svg">
+  <!-- shape3: Metal Brushed -->
   <defs>
-    <clipPath id="shape">
+    <clipPath id="shapeClip">
       <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z" fill-rule="evenodd"/>
     </clipPath>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#FFE082"/>
-      <stop offset="45%" stop-color="#FFB300"/>
-      <stop offset="100%" stop-color="#E65100"/>
+    <linearGradient id="base" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#17191d"/>
+      <stop offset="0.3" stop-color="#333840"/>
+      <stop offset="0.55" stop-color="#6f7a86"/>
+      <stop offset="0.78" stop-color="#39414b"/>
+      <stop offset="1" stop-color="#14171b"/>
     </linearGradient>
-    <radialGradient id="core" cx="0.28" cy="0.28" r="0.6">
-      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.8"/>
-      <stop offset="45%" stop-color="#FFF8E1" stop-opacity="0.25"/>
-      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.35"/>
+      <stop offset="0.35" stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop offset="0.55" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.75" stop-color="#ffffff" stop-opacity="0.1"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="brush" width="2" height="2" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="1" x2="2" y2="1" stroke="#ffffff" stroke-opacity="0.07"/>
+    </pattern>
+    <radialGradient id="highlight" cx="0.25" cy="0.25" r="0.6">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <g clip-path="url(#shape)">
-    <rect width="86" height="86" fill="url(#bg)"/>
-    <g stroke="#FFF3E0" stroke-width="2" fill="none" opacity="0.55">
-      <path d="M 12 12 L 30 86"/>
-      <path d="M 12 12 L 52 86"/>
-      <path d="M 12 12 L 74 86"/>
-      <path d="M 12 12 L 86 46"/>
-      <path d="M 12 12 L 12 86"/>
-      <path d="M 12 12 L 86 10"/>
-      <path d="M 12 12 L 34 86"/>
-      <path d="M 12 12 L 64 86"/>
-      <path d="M 12 12 L 86 30"/>
-      <path d="M 12 12 L 86 64"/>
+  <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z" fill="url(#base)" fill-rule="evenodd"/>
+  <g clip-path="url(#shapeClip)">
+    <rect width="86" height="86" fill="url(#brush)"/>
+    <g stroke="#ffffff" stroke-linecap="round">
+      <line x1="6" y1="24" x2="80" y2="24" stroke-opacity="0.16" stroke-width="1"/>
+      <line x1="6" y1="30" x2="80" y2="30" stroke-opacity="0.1" stroke-width="0.7"/>
+      <line x1="6" y1="47" x2="80" y2="47" stroke-opacity="0.14" stroke-width="1"/>
+      <line x1="6" y1="56" x2="80" y2="56" stroke-opacity="0.1" stroke-width="0.7"/>
+      <line x1="6" y1="72" x2="80" y2="72" stroke-opacity="0.12" stroke-width="1"/>
     </g>
-    <circle cx="12" cy="12" r="10" fill="#FFFFFF" opacity="0.85"/>
-    <circle cx="12" cy="12" r="4.5" fill="#FF6D00"/>
-    <rect width="86" height="86" fill="url(#core)"/>
+    <path d="M 0 0 L 30 86 L 0 86 Z" fill="url(#sheen)"/>
+    <path d="M 86 0 L 56 86 L 86 86 Z" fill="url(#sheen)"/>
+    <rect width="86" height="86" fill="url(#highlight)"/>
   </g>
 </svg>

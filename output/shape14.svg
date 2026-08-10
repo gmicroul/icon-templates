@@ -1,31 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="86" height="86" viewBox="0 0 86 86" xmlns="http://www.w3.org/2000/svg">
+  <!-- shape14: Energy Stripes -->
   <defs>
-    <clipPath id="shape">
+    <clipPath id="shapeClip">
       <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 0 43 A 43.0 43.0 0 0 1 43.0 0.0 L 0 0 Z M 43 86 A 43.0 43.0 0 0 1 0.0 43.0 L 0 86 Z M 86 43 A 43.0 43.0 0 0 1 43.0 86.0 L 86 86 Z" fill-rule="evenodd"/>
     </clipPath>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#651FFF"/>
-      <stop offset="55%" stop-color="#D500F9"/>
-      <stop offset="100%" stop-color="#00E5FF"/>
+    <linearGradient id="base" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2a0b12"/>
+      <stop offset="0.5" stop-color="#7a2050"/>
+      <stop offset="1" stop-color="#e86a2b"/>
     </linearGradient>
-    <pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse">
-      <rect width="4" height="1.6" fill="#000000" opacity="0.18"/>
+    <pattern id="stripes" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="6" height="16" fill="#ffc46b" opacity="0.18"/>
     </pattern>
+    <linearGradient id="band" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffb257" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#ffb257" stop-opacity="0.8"/>
+      <stop offset="1" stop-color="#ffb257" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="highlight" cx="0.25" cy="0.25" r="0.6">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
   </defs>
-  <g clip-path="url(#shape)">
-    <rect width="86" height="86" fill="url(#bg)"/>
-    <rect width="86" height="86" fill="url(#scan)"/>
-    <g stroke="#FFFFFF" stroke-width="1.4" fill="none" opacity="0.55" transform="rotate(45 43 43)">
-      <path d="M 0 60 L 86 60"/>
-      <path d="M 0 72 L 86 72"/>
-      <path d="M 0 34 L 86 34"/>
-      <path d="M 0 46 L 86 46"/>
+  <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 0 43 A 43.0 43.0 0 0 1 43.0 0.0 L 0 0 Z M 43 86 A 43.0 43.0 0 0 1 0.0 43.0 L 0 86 Z M 86 43 A 43.0 43.0 0 0 1 43.0 86.0 L 86 86 Z" fill="url(#base)" fill-rule="evenodd"/>
+  <g clip-path="url(#shapeClip)">
+    <rect width="86" height="86" fill="url(#stripes)"/>
+    <rect x="6" y="34" width="74" height="6" rx="3" fill="url(#band)"/>
+    <rect x="6" y="56" width="74" height="3" rx="1.5" fill="url(#band)" opacity="0.55"/>
+    <circle cx="43" cy="37" r="3.4" fill="#fff3d6"/>
+    <g fill="#ffe9c4">
+      <circle cx="43" cy="30" r="1.2"/>
+      <circle cx="51" cy="37" r="1.2"/>
+      <circle cx="35" cy="37" r="1.2"/>
+      <circle cx="30" cy="60" r="1"/>
+      <circle cx="56" cy="60" r="1"/>
     </g>
-    <g transform="rotate(45 43 43)">
-      <rect x="0" y="60" width="86" height="3" fill="#00FFFF" opacity="0.85"/>
-    </g>
-    <circle cx="22" cy="22" r="3.4" fill="#00E5FF" opacity="0.9"/>
-    <circle cx="58" cy="58" r="2.6" fill="#FFEA00" opacity="0.9"/>
+    <rect width="86" height="86" fill="url(#highlight)"/>
   </g>
 </svg>

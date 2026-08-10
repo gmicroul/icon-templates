@@ -1,44 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="86" height="86" viewBox="0 0 86 86" xmlns="http://www.w3.org/2000/svg">
+  <!-- shape1: Tech Circuit -->
   <defs>
-    <clipPath id="shape">
+    <clipPath id="shapeClip">
       <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z" fill-rule="evenodd"/>
     </clipPath>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#00E5FF"/>
-      <stop offset="55%" stop-color="#0091EA"/>
-      <stop offset="100%" stop-color="#0D47A1"/>
+    <linearGradient id="base" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b2545"/>
+      <stop offset="0.55" stop-color="#123f77"/>
+      <stop offset="1" stop-color="#1d6fc4"/>
     </linearGradient>
-    <linearGradient id="shine" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.55"/>
-      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    <linearGradient id="traceGlow" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#9be8ff" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#2fb6ff" stop-opacity="0.5"/>
     </linearGradient>
+    <pattern id="circGrid" width="14" height="14" patternUnits="userSpaceOnUse">
+      <path d="M0 14 H14 M14 0 V14" stroke="#8fdcff" stroke-width="0.4" opacity="0.22"/>
+    </pattern>
+    <radialGradient id="highlight" cx="0.25" cy="0.25" r="0.6">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
   </defs>
-  <g clip-path="url(#shape)">
-    <rect width="86" height="86" fill="url(#bg)"/>
-    <g stroke="#B3ECFF" stroke-width="1.2" fill="none" opacity="0.9">
-      <path d="M 8 14 L 30 14 L 36 8 L 50 8"/>
-      <path d="M 8 26 L 40 26 L 48 34 L 78 34"/>
-      <path d="M 8 40 L 22 40 L 30 48 L 78 48"/>
-      <path d="M 14 60 L 34 60 L 44 70 L 78 70"/>
-      <path d="M 8 76 L 60 76"/>
-      <path d="M 50 8 L 50 20 L 60 20 L 60 40"/>
-      <path d="M 48 34 L 48 48"/>
-      <path d="M 44 70 L 44 60"/>
+  <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z" fill="url(#base)" fill-rule="evenodd"/>
+  <g clip-path="url(#shapeClip)">
+    <rect width="86" height="86" fill="url(#circGrid)"/>
+    <g stroke="url(#traceGlow)" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 6 26 H 32 V 16 H 48"/>
+      <path d="M 62 6 V 34 H 78 V 54"/>
+      <path d="M 8 60 H 36 V 78 H 60"/>
+      <path d="M 72 66 H 50 V 44 H 40"/>
+      <path d="M 24 40 H 40 V 58 H 54"/>
     </g>
-    <g fill="#FFFFFF">
-      <circle cx="8" cy="14" r="2"/>
-      <circle cx="8" cy="26" r="2"/>
-      <circle cx="78" cy="34" r="2.2"/>
-      <circle cx="78" cy="48" r="2.2"/>
-      <circle cx="8" cy="40" r="2"/>
-      <circle cx="50" cy="8" r="2.2"/>
-      <circle cx="78" cy="70" r="2.2"/>
-      <circle cx="14" cy="60" r="2"/>
-      <circle cx="8" cy="76" r="2"/>
-      <circle cx="60" cy="40" r="2.2"/>
-      <circle cx="44" cy="60" r="2"/>
+    <g fill="#c8f3ff">
+      <circle cx="6" cy="26" r="1.8"/>
+      <circle cx="48" cy="16" r="1.8"/>
+      <circle cx="62" cy="6" r="1.8"/>
+      <circle cx="78" cy="54" r="1.8"/>
+      <circle cx="8" cy="60" r="1.8"/>
+      <circle cx="60" cy="78" r="1.8"/>
+      <circle cx="72" cy="66" r="1.8"/>
+      <circle cx="40" cy="44" r="1.8"/>
+      <circle cx="24" cy="40" r="1.8"/>
+      <circle cx="54" cy="58" r="1.8"/>
     </g>
-    <rect width="86" height="86" fill="url(#shine)"/>
+    <g fill="#eafcff">
+      <circle cx="32" cy="16" r="2.4"/>
+      <circle cx="36" cy="78" r="2.4"/>
+      <circle cx="50" cy="44" r="2.4"/>
+    </g>
+    <rect width="86" height="86" fill="url(#highlight)"/>
   </g>
 </svg>

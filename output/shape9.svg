@@ -1,29 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="86" height="86" viewBox="0 0 86 86" xmlns="http://www.w3.org/2000/svg">
+  <!-- shape9: Micro Grid -->
   <defs>
-    <clipPath id="shape">
+    <clipPath id="shapeClip">
       <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 86 43 A 43.0 43.0 0 0 1 43.0 86.0 L 86 86 Z" fill-rule="evenodd"/>
     </clipPath>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#A5F3C8"/>
-      <stop offset="50%" stop-color="#26C66B"/>
-      <stop offset="100%" stop-color="#00695C"/>
+    <linearGradient id="base" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#032216"/>
+      <stop offset="0.55" stop-color="#0c5a38"/>
+      <stop offset="1" stop-color="#21c97d"/>
     </linearGradient>
-    <pattern id="grid" width="6" height="6" patternUnits="userSpaceOnUse">
-      <path d="M 6 0 L 0 0 0 6" fill="none" stroke="#FFFFFF" stroke-width="0.3" opacity="0.28"/>
+    <pattern id="dotGrid" width="6" height="6" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="0.7" fill="#7fffc9" opacity="0.5"/>
     </pattern>
-    <pattern id="dotmatrix" width="6" height="6" patternUnits="userSpaceOnUse">
-      <circle cx="0.8" cy="0.8" r="0.55" fill="#FFFFFF" opacity="0.7"/>
-    </pattern>
-    <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.55"/>
-      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
-    </linearGradient>
+    <radialGradient id="highlight" cx="0.25" cy="0.25" r="0.6">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
   </defs>
-  <g clip-path="url(#shape)">
-    <rect width="86" height="86" fill="url(#bg)"/>
-    <rect width="86" height="86" fill="url(#grid)"/>
-    <rect width="86" height="86" fill="url(#dotmatrix)"/>
-    <rect width="86" height="86" fill="url(#glow)"/>
+  <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 86 43 A 43.0 43.0 0 0 1 43.0 86.0 L 86 86 Z" fill="url(#base)" fill-rule="evenodd"/>
+  <g clip-path="url(#shapeClip)">
+    <rect width="86" height="86" fill="url(#dotGrid)"/>
+    <line x1="0" y1="58" x2="86" y2="58" stroke="#a8ffe2" stroke-opacity="0.5" stroke-width="0.8"/>
+    <g fill="#a8ffe2">
+      <rect x="8" y="50" width="2.6" height="8" rx="1.3" opacity="0.8"/>
+      <rect x="16" y="44" width="2.6" height="14" rx="1.3" opacity="0.9"/>
+      <rect x="24" y="48" width="2.6" height="10" rx="1.3" opacity="0.75"/>
+      <rect x="32" y="40" width="2.6" height="18" rx="1.3" opacity="0.95"/>
+      <rect x="40" y="46" width="2.6" height="12" rx="1.3" opacity="0.8"/>
+      <rect x="48" y="38" width="2.6" height="20" rx="1.3" opacity="1"/>
+      <rect x="56" y="44" width="2.6" height="14" rx="1.3" opacity="0.85"/>
+      <rect x="64" y="50" width="2.6" height="8" rx="1.3" opacity="0.7"/>
+      <rect x="72" y="42" width="2.6" height="16" rx="1.3" opacity="0.6"/>
+      <rect x="80" y="48" width="2.6" height="10" rx="1.3" opacity="0.45"/>
+    </g>
+    <ellipse cx="24" cy="22" rx="20" ry="12" fill="#a8ffe2" opacity="0.08"/>
+    <circle cx="24" cy="22" r="2" fill="#d6fff0"/>
+    <rect width="86" height="86" fill="url(#highlight)"/>
   </g>
 </svg>

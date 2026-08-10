@@ -1,44 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="86" height="86" viewBox="0 0 86 86" xmlns="http://www.w3.org/2000/svg">
-  <!-- shape3: Metal Brushed -->
   <defs>
-    <clipPath id="shapeClip">
-      <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z" fill-rule="evenodd"/>
-    </clipPath>
-    <linearGradient id="base" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#17191d"/>
-      <stop offset="0.3" stop-color="#333840"/>
-      <stop offset="0.55" stop-color="#6f7a86"/>
-      <stop offset="0.78" stop-color="#39414b"/>
-      <stop offset="1" stop-color="#14171b"/>
+    <clipPath id="clip-shape3"><path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z" clip-rule="evenodd"/></clipPath>
+    <linearGradient id="metal3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5B5F66"/>
+      <stop offset="0.3" stop-color="#3A3E45"/>
+      <stop offset="0.5" stop-color="#9AA0AA"/>
+      <stop offset="0.72" stop-color="#2E3239"/>
+      <stop offset="1" stop-color="#787E88"/>
     </linearGradient>
-    <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#ffffff" stop-opacity="0.35"/>
-      <stop offset="0.35" stop-color="#ffffff" stop-opacity="0.08"/>
-      <stop offset="0.55" stop-color="#ffffff" stop-opacity="0"/>
-      <stop offset="0.75" stop-color="#ffffff" stop-opacity="0.1"/>
-      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    <linearGradient id="sheen3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.4"/>
+      <stop offset="0.35" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="1" stop-color="#E6E9EE" stop-opacity="0.25"/>
     </linearGradient>
-    <pattern id="brush" width="2" height="2" patternUnits="userSpaceOnUse">
-      <line x1="0" y1="1" x2="2" y2="1" stroke="#ffffff" stroke-opacity="0.07"/>
-    </pattern>
-    <radialGradient id="highlight" cx="0.25" cy="0.25" r="0.6">
+    <radialGradient id="hl3" cx="0.25" cy="0.25" r="0.6">
       <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.55"/>
       <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
     </radialGradient>
+    <pattern id="brush3" width="86" height="3" patternUnits="userSpaceOnUse">
+      <rect x="0" y="1.2" width="86" height="0.6" fill="#FFFFFF" opacity="0.12"/>
+      <rect x="0" y="2.4" width="86" height="0.3" fill="#000000" opacity="0.18"/>
+    </pattern>
   </defs>
-  <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z" fill="url(#base)" fill-rule="evenodd"/>
-  <g clip-path="url(#shapeClip)">
-    <rect width="86" height="86" fill="url(#brush)"/>
-    <g stroke="#ffffff" stroke-linecap="round">
-      <line x1="6" y1="24" x2="80" y2="24" stroke-opacity="0.16" stroke-width="1"/>
-      <line x1="6" y1="30" x2="80" y2="30" stroke-opacity="0.1" stroke-width="0.7"/>
-      <line x1="6" y1="47" x2="80" y2="47" stroke-opacity="0.14" stroke-width="1"/>
-      <line x1="6" y1="56" x2="80" y2="56" stroke-opacity="0.1" stroke-width="0.7"/>
-      <line x1="6" y1="72" x2="80" y2="72" stroke-opacity="0.12" stroke-width="1"/>
-    </g>
-    <path d="M 0 0 L 30 86 L 0 86 Z" fill="url(#sheen)"/>
-    <path d="M 86 0 L 56 86 L 86 86 Z" fill="url(#sheen)"/>
-    <rect width="86" height="86" fill="url(#highlight)"/>
+  <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z" fill="url(#metal3)" fill-rule="evenodd"/>
+  <g clip-path="url(#clip-shape3)">
+    <rect x="0" y="0" width="86" height="86" fill="url(#brush3)"/>
+    <path d="M -4 -8 L 60 90 M 8 -8 L 72 90 M 20 -8 L 84 90" stroke="#FFFFFF" stroke-opacity="0.18" stroke-width="10"/>
+    <path d="M 26 -8 L 90 56" stroke="#000000" stroke-opacity="0.15" stroke-width="14"/>
+    <rect x="0" y="0" width="86" height="86" fill="url(#sheen3)"/>
+    <path d="M 8 14 L 14 8 L 16 10 L 10 16 Z" fill="#FFFFFF" opacity="0.7"/>
+    <rect x="0" y="0" width="86" height="86" fill="url(#hl3)"/>
   </g>
 </svg>

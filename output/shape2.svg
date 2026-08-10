@@ -1,40 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="86" height="86" viewBox="0 0 86 86" xmlns="http://www.w3.org/2000/svg">
-  <!-- shape2: Hexagon Texture -->
   <defs>
-    <clipPath id="shapeClip">
-      <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 0 43 A 43.0 43.0 0 0 1 43.0 0.0 L 0 0 Z" fill-rule="evenodd"/>
-    </clipPath>
-    <linearGradient id="base" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#170b33"/>
-      <stop offset="0.55" stop-color="#3a1d6e"/>
-      <stop offset="1" stop-color="#7a48e0"/>
+    <clipPath id="clip-shape2"><path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 0 43 A 43.0 43.0 0 0 1 43.0 0.0 L 0 0 Z" clip-rule="evenodd"/></clipPath>
+    <linearGradient id="base2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#072B33"/>
+      <stop offset="0.5" stop-color="#0E5A5C"/>
+      <stop offset="1" stop-color="#073F42"/>
     </linearGradient>
-    <pattern id="honey" width="24.24" height="21" patternUnits="userSpaceOnUse">
-      <path d="M 0 -7 L 6.06 -3.5 L 6.06 3.5 L 0 7 L -6.06 3.5 L -6.06 -3.5 Z" transform="translate(6.06,10.5)" stroke="#c9a8ff" stroke-width="0.8" fill="none" opacity="0.45"/>
-      <path d="M 0 -7 L 6.06 -3.5 L 6.06 3.5 L 0 7 L -6.06 3.5 L -6.06 -3.5 Z" transform="translate(18.18,10.5)" stroke="#c9a8ff" stroke-width="0.8" fill="none" opacity="0.45"/>
-      <path d="M 0 -7 L 6.06 -3.5 L 6.06 3.5 L 0 7 L -6.06 3.5 L -6.06 -3.5 Z" transform="translate(12.12,0)" stroke="#c9a8ff" stroke-width="0.8" fill="none" opacity="0.25"/>
-      <path d="M 0 -7 L 6.06 -3.5 L 6.06 3.5 L 0 7 L -6.06 3.5 L -6.06 -3.5 Z" transform="translate(12.12,10.5)" fill="#9a6bff" opacity="0.22"/>
-    </pattern>
-    <radialGradient id="highlight" cx="0.25" cy="0.25" r="0.6">
+    <linearGradient id="hexfill2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2EF5C8"/>
+      <stop offset="1" stop-color="#0FB2A0"/>
+    </linearGradient>
+    <radialGradient id="glow2" cx="0.3" cy="0.3" r="0.6">
+      <stop offset="0" stop-color="#3BFFD6" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#3BFFD6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="hl2" cx="0.3" cy="0.3" r="0.6">
       <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.55"/>
       <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
     </radialGradient>
+    <pattern id="honey2" width="18" height="20.8" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="#2EF5C8" stroke-opacity="0.55" stroke-width="1">
+        <path d="M -6 0 L -3 5.2 L 3 5.2 L 6 0 L 3 -5.2 L -3 -5.2 Z"/>
+        <path d="M 3 10.4 L 6 15.6 L 12 15.6 L 15 10.4 L 12 5.2 L 6 5.2 Z"/>
+      </g>
+    </pattern>
   </defs>
-  <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 0 43 A 43.0 43.0 0 0 1 43.0 0.0 L 0 0 Z" fill="url(#base)" fill-rule="evenodd"/>
-  <g clip-path="url(#shapeClip)">
-    <rect width="86" height="86" fill="url(#honey)"/>
-    <g fill="none" stroke="#d7c2ff" stroke-linejoin="round">
-      <path d="M 43 23 L 60.32 33 L 60.32 53 L 43 63 L 25.68 53 L 25.68 33 Z" stroke-width="2" opacity="0.85"/>
-      <path d="M 43 30 L 54.26 36.5 L 54.26 49.5 L 43 56 L 31.74 49.5 L 31.74 36.5 Z" stroke-width="1.4" opacity="0.55"/>
-      <path d="M 43 35 L 49.93 39 L 49.93 47 L 43 51 L 36.07 47 L 36.07 39 Z" stroke-width="1" opacity="0.35"/>
+  <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 0 43 A 43.0 43.0 0 0 1 43.0 0.0 L 0 0 Z" fill="url(#base2)" fill-rule="evenodd"/>
+  <g clip-path="url(#clip-shape2)">
+    <rect x="0" y="0" width="86" height="86" fill="url(#honey2)"/>
+    <g fill="url(#hexfill2)" opacity="0.85">
+      <path d="M 46 43 L 49 48.2 L 55 48.2 L 58 43 L 55 37.8 L 49 37.8 Z"/>
+      <path d="M 10 62 L 13 67.2 L 19 67.2 L 22 62 L 19 56.8 L 13 56.8 Z"/>
+      <path d="M 70 20 L 73 25.2 L 79 25.2 L 82 20 L 79 14.8 L 73 14.8 Z"/>
     </g>
-    <path d="M 43 37 L 48.2 40 L 48.2 46 L 43 49 L 37.8 46 L 37.8 40 Z" fill="#efe6ff" opacity="0.9"/>
-    <g fill="#d7c2ff" opacity="0.6">
-      <path d="M 8 38 l 2.6 1.5 l 0 3 l -2.6 1.5 l -2.6 -1.5 l 0 -3 Z"/>
-      <path d="M 76 42 l 2.6 1.5 l 0 3 l -2.6 1.5 l -2.6 -1.5 l 0 -3 Z"/>
-      <path d="M 42 70 l 2.6 1.5 l 0 3 l -2.6 1.5 l -2.6 -1.5 l 0 -3 Z"/>
+    <g fill="none" stroke="#BFFBE9" stroke-width="0.7" opacity="0.9">
+      <circle cx="49" cy="43" r="2"/>
+      <circle cx="13" cy="62" r="2"/>
+      <circle cx="73" cy="20" r="2"/>
     </g>
-    <rect width="86" height="86" fill="url(#highlight)"/>
+    <circle cx="43" cy="43" r="36" fill="url(#glow2)"/>
+    <rect x="0" y="0" width="86" height="86" fill="url(#hl2)"/>
   </g>
 </svg>

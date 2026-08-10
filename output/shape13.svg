@@ -1,39 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="86" height="86" viewBox="0 0 86 86" xmlns="http://www.w3.org/2000/svg">
-  <!-- shape13: Hexagonal Cells -->
   <defs>
-    <clipPath id="shapeClip">
-      <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 86 A 43.0 43.0 0 0 1 0.0 43.0 L 0 86 Z M 86 43 A 43.0 43.0 0 0 1 43.0 86.0 L 86 86 Z" fill-rule="evenodd"/>
-    </clipPath>
-    <linearGradient id="base" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#032a26"/>
-      <stop offset="0.55" stop-color="#0a6b5a"/>
-      <stop offset="1" stop-color="#1fc7a8"/>
+    <clipPath id="clip-shape13"><path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 86 A 43.0 43.0 0 0 1 0.0 43.0 L 0 86 Z M 86 43 A 43.0 43.0 0 0 1 43.0 86.0 L 86 86 Z" clip-rule="evenodd"/></clipPath>
+    <linearGradient id="base13" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#041F1C"/>
+      <stop offset="0.5" stop-color="#0A4A3C"/>
+      <stop offset="1" stop-color="#062E28"/>
     </linearGradient>
-    <pattern id="cells" width="24.24" height="21" patternUnits="userSpaceOnUse">
-      <path d="M 0 -7 L 6.06 -3.5 L 6.06 3.5 L 0 7 L -6.06 3.5 L -6.06 -3.5 Z" transform="translate(6.06,10.5)" stroke="#7dffe4" stroke-width="0.8" fill="none" opacity="0.4"/>
-      <path d="M 0 -7 L 6.06 -3.5 L 6.06 3.5 L 0 7 L -6.06 3.5 L -6.06 -3.5 Z" transform="translate(18.18,10.5)" stroke="#7dffe4" stroke-width="0.8" fill="none" opacity="0.4"/>
-      <path d="M 0 -7 L 6.06 -3.5 L 6.06 3.5 L 0 7 L -6.06 3.5 L -6.06 -3.5 Z" transform="translate(12.12,0)" stroke="#7dffe4" stroke-width="0.8" fill="none" opacity="0.25"/>
-      <path d="M 0 -7 L 6.06 -3.5 L 6.06 3.5 L 0 7 L -6.06 3.5 L -6.06 -3.5 Z" transform="translate(6.06,10.5)" fill="#2fe8c0" opacity="0.18"/>
-      <path d="M 0 -7 L 6.06 -3.5 L 6.06 3.5 L 0 7 L -6.06 3.5 L -6.06 -3.5 Z" transform="translate(18.18,10.5)" fill="#2fe8c0" opacity="0.18"/>
-    </pattern>
-    <radialGradient id="highlight" cx="0.25" cy="0.25" r="0.6">
+    <linearGradient id="trace13" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2BFFB4"/>
+      <stop offset="1" stop-color="#00D68C"/>
+    </linearGradient>
+    <radialGradient id="glow13" cx="0.35" cy="0.35" r="0.6">
+      <stop offset="0" stop-color="#5EFFCE" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#5EFFCE" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="hl13" cx="0.25" cy="0.25" r="0.6">
       <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.55"/>
       <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 86 A 43.0 43.0 0 0 1 0.0 43.0 L 0 86 Z M 86 43 A 43.0 43.0 0 0 1 43.0 86.0 L 86 86 Z" fill="url(#base)" fill-rule="evenodd"/>
-  <g clip-path="url(#shapeClip)">
-    <rect width="86" height="86" fill="url(#cells)"/>
-    <g fill="none" stroke="#d3fff2" stroke-linejoin="round">
-      <path d="M 43 28 L 56.13 35.5 L 56.13 50.5 L 43 58 L 29.87 50.5 L 29.87 35.5 Z" stroke-width="1.8" opacity="0.85"/>
-      <path d="M 43 35 L 51.06 39.5 L 51.06 46.5 L 43 51 L 34.94 46.5 L 34.94 39.5 Z" stroke-width="1.2" opacity="0.5"/>
+  <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 86 A 43.0 43.0 0 0 1 0.0 43.0 L 0 86 Z M 86 43 A 43.0 43.0 0 0 1 43.0 86.0 L 86 86 Z" fill="url(#base13)" fill-rule="evenodd"/>
+  <g clip-path="url(#clip-shape13)">
+    <g fill="none" stroke="url(#trace13)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 10 74 L 26 58 L 40 58 L 48 50"/>
+      <path d="M 78 12 L 62 12 L 52 22 L 40 22"/>
+      <path d="M 30 8 L 30 20 L 22 28"/>
+      <path d="M 70 78 L 70 64 L 60 54"/>
+      <path d="M 8 40 L 20 40 L 30 30"/>
+      <path d="M 78 40 L 64 40 L 54 30"/>
+      <path d="M 18 60 L 30 48"/>
+      <path d="M 60 68 L 52 60"/>
     </g>
-    <path d="M 43 36 L 49.3 39.75 L 49.3 45.25 L 43 49 L 36.7 45.25 L 36.7 39.75 Z" fill="#eafffb" opacity="0.92"/>
-    <g fill="#7dffe4" opacity="0.6">
-      <path d="M 10 40 l 2.4 1.4 l 0 2.8 l -2.4 1.4 l -2.4 -1.4 l 0 -2.8 Z"/>
-      <path d="M 74 44 l 2.4 1.4 l 0 2.8 l -2.4 1.4 l -2.4 -1.4 l 0 -2.8 Z"/>
+    <g fill="#B8FFE5">
+      <circle cx="48" cy="50" r="3"/>
+      <circle cx="40" cy="22" r="3"/>
+      <circle cx="30" cy="30" r="3"/>
+      <circle cx="54" cy="30" r="3"/>
+      <circle cx="22" cy="28" r="2.2"/>
+      <circle cx="60" cy="54" r="2.2"/>
+      <circle cx="30" cy="48" r="2.2"/>
+      <circle cx="52" cy="60" r="2.2"/>
     </g>
-    <rect width="86" height="86" fill="url(#highlight)"/>
+    <g fill="none" stroke="#8EFFDB" stroke-opacity="0.8">
+      <rect x="34" y="44" width="10" height="8"/>
+      <rect x="46" y="26" width="10" height="8"/>
+      <rect x="62" y="58" width="10" height="8"/>
+      <rect x="18" y="32" width="8" height="10"/>
+      <rect x="62" y="26" width="8" height="8"/>
+    </g>
+    <circle cx="43" cy="43" r="34" fill="url(#glow13)"/>
+    <rect x="0" y="0" width="86" height="86" fill="url(#hl13)"/>
   </g>
 </svg>

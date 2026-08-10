@@ -1,46 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="86" height="86" viewBox="0 0 86 86" xmlns="http://www.w3.org/2000/svg">
-  <!-- shape11: Halo Rings -->
   <defs>
-    <clipPath id="shapeClip">
-      <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z M 86 43 A 43.0 43.0 0 0 1 43.0 86.0 L 86 86 Z" fill-rule="evenodd"/>
-    </clipPath>
-    <linearGradient id="base" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0a1238"/>
-      <stop offset="0.55" stop-color="#1d2f7a"/>
-      <stop offset="1" stop-color="#2e59d8"/>
+    <clipPath id="clip-shape11"><path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z M 86 43 A 43.0 43.0 0 0 1 43.0 86.0 L 86 86 Z" clip-rule="evenodd"/></clipPath>
+    <linearGradient id="base11" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3B0B4F"/>
+      <stop offset="0.5" stop-color="#8A1E8E"/>
+      <stop offset="1" stop-color="#4A1160"/>
     </linearGradient>
-    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0" stop-color="#35c6ff" stop-opacity="0.5"/>
-      <stop offset="1" stop-color="#35c6ff" stop-opacity="0"/>
+    <radialGradient id="core11" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#FFD1F7" stop-opacity="0.95"/>
+      <stop offset="0.4" stop-color="#F65CC8" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#F65CC8" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="highlight" cx="0.25" cy="0.25" r="0.6">
+    <radialGradient id="halo11" cx="0.5" cy="0.5" r="0.55">
+      <stop offset="0.65" stop-color="#B44FE0" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#B44FE0" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="hl11" cx="0.25" cy="0.25" r="0.6">
       <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.55"/>
       <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z M 86 43 A 43.0 43.0 0 0 1 43.0 86.0 L 86 86 Z" fill="url(#base)" fill-rule="evenodd"/>
-  <g clip-path="url(#shapeClip)">
-    <circle cx="43" cy="43" r="38" fill="url(#glow)"/>
-    <g fill="none" stroke="#8fd6ff">
-      <circle cx="43" cy="43" r="36" stroke-width="0.8" opacity="0.35"/>
-      <circle cx="43" cy="43" r="29" stroke-width="1.1" opacity="0.55"/>
-      <circle cx="43" cy="43" r="22" stroke-width="1.6" opacity="0.75"/>
-      <circle cx="43" cy="43" r="15" stroke-width="2.2" opacity="0.9"/>
-      <circle cx="43" cy="43" r="8" stroke-width="1.4" opacity="0.6"/>
+  <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z M 86 43 A 43.0 43.0 0 0 1 43.0 86.0 L 86 86 Z" fill="url(#base11)" fill-rule="evenodd"/>
+  <g clip-path="url(#clip-shape11)">
+    <circle cx="43" cy="43" r="40" fill="url(#halo11)"/>
+    <g fill="none" stroke-linecap="round">
+      <circle cx="43" cy="43" r="10" stroke="#FFE1F6" stroke-width="2.4" opacity="0.95"/>
+      <circle cx="43" cy="43" r="17" stroke="#FFB7EC" stroke-width="1.4" opacity="0.75"/>
+      <circle cx="43" cy="43" r="25" stroke="#F07FD8" stroke-width="1.2" opacity="0.6"/>
+      <circle cx="43" cy="43" r="33" stroke="#C258C9" stroke-width="1" opacity="0.5"/>
+      <circle cx="43" cy="43" r="41" stroke="#9C3DB0" stroke-width="0.8" opacity="0.4"/>
     </g>
-    <circle cx="43" cy="43" r="3" fill="#eafcff"/>
-    <g fill="#aef4ff">
-      <circle cx="43" cy="65" r="1.6"/>
-      <circle cx="58" cy="29" r="1.6"/>
-      <circle cx="28" cy="35" r="1.6"/>
+    <circle cx="43" cy="43" r="44" fill="url(#core11)"/>
+    <g fill="#FFFFFF">
+      <circle cx="43" cy="33" r="2.4" opacity="0.95"/>
+      <circle cx="33" cy="43" r="1.6" opacity="0.6"/>
+      <circle cx="53" cy="43" r="1.6" opacity="0.6"/>
+      <circle cx="43" cy="53" r="1.4" opacity="0.5"/>
     </g>
-    <g stroke="#aef4ff" stroke-width="0.8" opacity="0.6">
-      <line x1="43" y1="22" x2="43" y2="31"/>
-      <line x1="43" y1="55" x2="43" y2="64"/>
-      <line x1="61" y1="43" x2="70" y2="43"/>
-      <line x1="16" y1="43" x2="25" y2="43"/>
-    </g>
-    <rect width="86" height="86" fill="url(#highlight)"/>
+    <rect x="0" y="0" width="86" height="86" fill="url(#hl11)"/>
   </g>
 </svg>

@@ -1,41 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="86" height="86" viewBox="0 0 86 86" xmlns="http://www.w3.org/2000/svg">
-  <!-- shape15: Dot Wave -->
   <defs>
-    <clipPath id="shapeClip">
-      <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z M 43 86 A 43.0 43.0 0 0 1 0.0 43.0 L 0 86 Z M 86 43 A 43.0 43.0 0 0 1 43.0 86.0 L 86 86 Z" fill-rule="evenodd"/>
-    </clipPath>
-    <linearGradient id="base" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#041c2e"/>
-      <stop offset="0.55" stop-color="#0c4a5e"/>
-      <stop offset="1" stop-color="#19b3a6"/>
+    <clipPath id="clip-shape15"><path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z M 43 86 A 43.0 43.0 0 0 1 0.0 43.0 L 0 86 Z M 86 43 A 43.0 43.0 0 0 1 43.0 86.0 L 86 86 Z" clip-rule="evenodd"/></clipPath>
+    <linearGradient id="holog15" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6A0FFF"/>
+      <stop offset="0.3" stop-color="#2979FF"/>
+      <stop offset="0.55" stop-color="#00E5FF"/>
+      <stop offset="0.8" stop-color="#B44FE0"/>
+      <stop offset="1" stop-color="#F65CC8"/>
     </linearGradient>
-    <pattern id="dotGrid" width="6" height="6" patternUnits="userSpaceOnUse">
-      <circle cx="3" cy="3" r="0.65" fill="#7ff7d0" opacity="0.42"/>
-    </pattern>
-    <radialGradient id="highlight" cx="0.25" cy="0.25" r="0.6">
+    <linearGradient id="facet15a" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="facet15b" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#1B0560" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#1B0560" stop-opacity="0.08"/>
+    </linearGradient>
+    <radialGradient id="glow15" cx="0.5" cy="0.5" r="0.6">
+      <stop offset="0" stop-color="#E5D6FF" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#E5D6FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="hl15" cx="0.25" cy="0.25" r="0.6">
       <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.55"/>
       <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z M 43 86 A 43.0 43.0 0 0 1 0.0 43.0 L 0 86 Z M 86 43 A 43.0 43.0 0 0 1 43.0 86.0 L 86 86 Z" fill="url(#base)" fill-rule="evenodd"/>
-  <g clip-path="url(#shapeClip)">
-    <rect width="86" height="86" fill="url(#dotGrid)"/>
-    <g fill="none" stroke-linecap="round">
-      <path d="M 2 32 Q 13 18 24 32 T 46 32 T 68 32 T 86 32" stroke="#b7ffe6" stroke-width="1.6" opacity="0.85"/>
-      <path d="M 2 54 Q 13 68 24 54 T 46 54 T 68 54 T 86 54" stroke="#4fe3c0" stroke-width="1.2" opacity="0.6"/>
+  <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z M 43 86 A 43.0 43.0 0 0 1 0.0 43.0 L 0 86 Z M 86 43 A 43.0 43.0 0 0 1 43.0 86.0 L 86 86 Z" fill="url(#holog15)" fill-rule="evenodd"/>
+  <g clip-path="url(#clip-shape15)">
+    <polygon points="43,8 60,43 43,78 26,43" fill="url(#facet15a)"/>
+    <polygon points="60,43 86,0 86,86" fill="url(#facet15b)"/>
+    <polygon points="26,43 0,0 0,86" fill="url(#facet15b)"/>
+    <polygon points="26,43 60,43 60,78 26,78" fill="url(#facet15a)"/>
+    <path d="M 43 8 L 43 78 M 26 43 L 60 43 M 26 43 L 0 0 M 60 43 L 86 0 M 26 43 L 0 86 M 60 43 L 86 86" stroke="#E9F2FF" stroke-opacity="0.6" stroke-width="1" fill="none"/>
+    <g fill="#FFFFFF">
+      <path d="M 43 36 L 46 43 L 43 50 L 40 43 Z"/>
+      <path d="M 62 30 L 64 33 L 62 36 L 60 33 Z"/>
+      <path d="M 24 50 L 26 53 L 24 56 L 22 53 Z"/>
+      <path d="M 30 16 L 31 18 L 30 20 L 29 18 Z"/>
     </g>
-    <g fill="#eafff7">
-      <circle cx="24" cy="32" r="1.6"/>
-      <circle cx="46" cy="32" r="1.6"/>
-      <circle cx="68" cy="32" r="1.6"/>
-      <circle cx="35" cy="61" r="1.3"/>
-      <circle cx="57" cy="47" r="1.3"/>
-    </g>
-    <g fill="#ffffff" opacity="0.9">
-      <circle cx="35" cy="32" r="1"/>
-      <circle cx="57" cy="32" r="1"/>
-    </g>
-    <rect width="86" height="86" fill="url(#highlight)"/>
+    <circle cx="43" cy="43" r="30" fill="url(#glow15)"/>
+    <rect x="0" y="0" width="86" height="86" fill="url(#hl15)"/>
   </g>
 </svg>

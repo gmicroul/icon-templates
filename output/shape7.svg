@@ -1,54 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="86" height="86" viewBox="0 0 86 86" xmlns="http://www.w3.org/2000/svg">
-  <!-- shape7: AI Future Grid -->
   <defs>
-    <clipPath id="shapeClip">
-      <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z M 43 86 A 43.0 43.0 0 0 1 0.0 43.0 L 0 86 Z" fill-rule="evenodd"/>
-    </clipPath>
-    <linearGradient id="base" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#12082e"/>
-      <stop offset="0.55" stop-color="#33156e"/>
-      <stop offset="1" stop-color="#6a2fd0"/>
+    <clipPath id="clip-shape7"><path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z M 43 86 A 43.0 43.0 0 0 1 0.0 43.0 L 0 86 Z" clip-rule="evenodd"/></clipPath>
+    <linearGradient id="base7" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#050A1F"/>
+      <stop offset="0.5" stop-color="#0D2463"/>
+      <stop offset="1" stop-color="#071540"/>
     </linearGradient>
-    <pattern id="gridLines" width="16" height="16" patternUnits="userSpaceOnUse">
-      <path d="M0 16 H16 M16 0 V16" stroke="#8b7bff" stroke-width="0.4" opacity="0.28"/>
-    </pattern>
-    <pattern id="gridDots" width="8" height="8" patternUnits="userSpaceOnUse">
-      <circle cx="8" cy="8" r="0.9" fill="#7fe8ff" opacity="0.6"/>
-    </pattern>
-    <radialGradient id="highlight" cx="0.25" cy="0.25" r="0.6">
+    <radialGradient id="core7" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#4DD8FF" stop-opacity="0.85"/>
+      <stop offset="0.5" stop-color="#2979FF" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="#2979FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="hl7" cx="0.25" cy="0.25" r="0.6">
       <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.55"/>
       <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
     </radialGradient>
+    <pattern id="node7" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="13" cy="13" r="1.3" fill="#7AE4FF" opacity="0.85"/>
+    </pattern>
   </defs>
-  <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z M 43 86 A 43.0 43.0 0 0 1 0.0 43.0 L 0 86 Z" fill="url(#base)" fill-rule="evenodd"/>
-  <g clip-path="url(#shapeClip)">
-    <rect width="86" height="86" fill="url(#gridLines)"/>
-    <rect width="86" height="86" fill="url(#gridDots)"/>
-    <g stroke="#63e6ff" stroke-width="0.9" fill="none" opacity="0.55">
-      <line x1="8" y1="8" x2="40" y2="40"/>
-      <line x1="40" y1="40" x2="72" y2="8"/>
-      <line x1="24" y1="56" x2="56" y2="24"/>
-      <line x1="56" y1="24" x2="80" y2="48"/>
-      <line x1="16" y1="48" x2="48" y2="80"/>
-      <line x1="48" y1="80" x2="80" y2="48"/>
+  <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z M 43 86 A 43.0 43.0 0 0 1 0.0 43.0 L 0 86 Z" fill="url(#base7)" fill-rule="evenodd"/>
+  <g clip-path="url(#clip-shape7)">
+    <g fill="none" stroke="#4DD8FF">
+      <g stroke-opacity="0.35" stroke-width="0.8">
+        <path d="M -10 26 L 96 12"/>
+        <path d="M -10 38 L 96 26"/>
+        <path d="M -10 50 L 96 38"/>
+        <path d="M -10 62 L 96 50"/>
+        <path d="M -10 74 L 96 62"/>
+        <path d="M -10 86 L 96 74"/>
+      </g>
+      <g stroke-opacity="0.45" stroke-width="0.8">
+        <path d="M -10 14 L 96 0"/>
+        <path d="M -10 2 L 96 -12"/>
+      </g>
     </g>
-    <g fill="#63e6ff">
-      <circle cx="8" cy="8" r="2"/>
-      <circle cx="40" cy="40" r="2.4"/>
-      <circle cx="72" cy="8" r="2"/>
-      <circle cx="24" cy="56" r="1.8"/>
-      <circle cx="56" cy="24" r="2"/>
-      <circle cx="16" cy="48" r="1.8"/>
-      <circle cx="48" cy="80" r="2"/>
-      <circle cx="80" cy="48" r="1.8"/>
+    <g fill="none" stroke="#7AE4FF" stroke-opacity="0.5" stroke-width="0.7">
+      <path d="M -8 74 L 94 74"/>
+      <path d="M -8 62 L 94 62"/>
+      <path d="M -8 50 L 94 50"/>
+      <path d="M -8 38 L 94 38"/>
+      <path d="M -8 26 L 94 26"/>
+      <path d="M -8 14 L 94 14"/>
+      <path d="M -8 2 L 94 2"/>
+      <path d="M -8 -10 L 94 -10"/>
     </g>
-    <g fill="#ffffff">
-      <circle cx="40" cy="40" r="1"/>
-      <circle cx="56" cy="24" r="0.8"/>
-    </g>
-    <path d="M 62 60 L 66 56 L 72 62 L 66 68 Z" fill="#ffffff" opacity="0.12"/>
-    <path d="M 66 58 L 68 56 L 70 58 L 68 60 Z" fill="#aef4ff" opacity="0.8"/>
-    <rect width="86" height="86" fill="url(#highlight)"/>
+    <rect x="0" y="0" width="86" height="86" fill="url(#node7)"/>
+    <path d="M 43 2 L 48 22 L 68 27 L 48 32 L 43 52 L 38 32 L 18 27 L 38 22 Z" fill="none" stroke="#9FEFFF" stroke-opacity="0.7" stroke-width="1"/>
+    <circle cx="43" cy="43" r="38" fill="url(#core7)"/>
+    <rect x="0" y="0" width="86" height="86" fill="url(#hl7)"/>
   </g>
 </svg>

@@ -1,0 +1,536 @@
+name: OpenCode SFOS Icon Designer-AI-HTML
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+
+  design:
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+
+      - name: Check templates
+        run: |
+
+          if [ ! -d "sfos-icons" ]; then
+            echo "sfos-icons directory missing"
+            exit 1
+          fi
+
+
+          COUNT=$(find sfos-icons -name "*.svg" | wc -l)
+
+          echo "SVG templates: $COUNT"
+
+
+          if [ "$COUNT" -lt 16 ]; then
+            exit 1
+          fi
+
+
+
+      - name: Install OpenCode CLI
+        run: |
+
+          curl -fsSL https://opencode.ai/install | bash
+
+          echo "$HOME/.opencode/bin" >> "$GITHUB_PATH"
+
+          export PATH="$HOME/.opencode/bin:$PATH"
+
+          opencode --version
+
+
+
+      - name: Prepare output
+        run: |
+
+          rm -rf output
+
+          mkdir -p output
+
+          chmod 777 output
+
+
+
+      - name: Run OpenCode Designer
+        run: |
+
+          export PATH="$HOME/.opencode/bin:$PATH"
+
+
+          timeout 25m opencode run "
+
+          不要询问。
+
+          不执行git操作。
+
+
+
+          当前仓库：
+
+          $PWD
+
+
+
+          =================================
+
+          任务
+
+          =================================
+
+
+          设计一套新的 Sailfish OS 风格 SVG 图标。
+
+
+          输入模板：
+
+          sfos-icons/
+
+
+          输出：
+
+          output/
+
+
+
+          =================================
+
+          模板规则
+
+          =================================
+
+
+          使用：
+
+          sfos-icons/shape1.svg
+
+          sfos-icons/shape2.svg
+
+          ...
+
+          sfos-icons/shape16.svg
+
+
+
+          作为基础模板。
+
+
+
+          输出：
+
+          output/shape1.svg
+
+          output/shape2.svg
+
+          ...
+
+          output/shape16.svg
+
+
+
+          禁止修改：
+
+          sfos-icons/
+
+
+
+          =================================
+
+          SVG核心规则
+
+          =================================
+
+
+          必须保留：
+
+
+          - 原始shape外形
+          - 原始path结构
+          - viewBox
+          - SVG比例
+
+
+          原SVG黑色区域：
+
+          作为唯一设计区域。
+
+
+
+          透明区域：
+
+          必须完全保持透明。
+
+
+
+          禁止：
+
+          - 添加背景
+          - 添加底板
+          - 添加矩形背景
+          - 改变shape轮廓
+          - 删除原path
+
+
+
+          =================================
+
+          个性化纹理设计
+
+          =================================
+
+
+          根据每个shape黑色区域形状自由设计。
+
+
+
+          可以增加：
+
+
+          - 科技电路纹
+          - 六边形纹理
+          - 金属拉丝
+          - 玻璃折射
+          - 能量光线
+          - 星云颗粒
+          - AI未来纹
+          - 几何切割
+          - 微型网格
+          - 波纹
+          - 光环
+
+
+
+          每个shape必须具有独立设计风格。
+
+
+
+          所有新增纹理：
+
+          必须限制在原黑色区域内部。
+
+
+
+          推荐使用：
+
+          clipPath
+
+
+
+          结构：
+
+
+          原黑色shape路径
+
+          ↓
+
+          clipPath
+
+          ↓
+
+          texture
+
+          gradient
+
+          highlight
+
+
+
+          =================================
+
+          颜色设计
+
+          =================================
+
+
+          自由选择主题颜色。
+
+
+          保持：
+
+          Sailfish OS
+
+          简洁
+
+          高级
+
+          柔和
+
+
+
+          可使用：
+
+
+          蓝色
+
+          青色
+
+          紫色
+
+          绿色
+
+          橙色
+
+          金属色
+
+
+
+          =================================
+
+          光影
+
+          =================================
+
+
+          可以使用：
+
+
+          linearGradient
+
+
+          x1=0
+
+          y1=0
+
+          x2=1
+
+          y2=1
+
+
+
+          radialGradient
+
+
+          cx=0.25
+
+          cy=0.25
+
+          r=0.6
+
+
+
+          高光：
+
+          #FFFFFF
+
+
+          opacity:
+
+          0.55 -> 0
+
+
+
+          =================================
+
+          输出要求
+
+          =================================
+
+
+          必须生成：
+
+
+          output/shape1.svg
+
+          output/shape2.svg
+
+          ...
+
+          output/shape16.svg
+
+
+
+          =================================
+
+          生成预览网页
+
+          =================================
+
+
+          同时生成：
+
+
+          output/index.html
+
+
+
+          这个HTML用于展示所有新设计SVG。
+
+
+
+          页面要求：
+
+
+          Sailfish OS 风格。
+
+
+          必须包含：
+
+
+          - 深色背景
+          - 高级简洁UI
+          - 圆角卡片
+          - 网格布局
+          - 手机两列
+          - PC响应式布局
+
+
+
+          每个卡片显示：
+
+
+          - SVG图标
+          - shape名称
+
+
+
+          图标尺寸：
+
+          86x86px
+
+
+
+          卡片：
+
+          圆角20px
+
+
+
+          添加：
+
+          - hover动画
+          - 柔和阴影
+          - 放大效果
+
+
+
+          =================================
+
+          HTML限制
+
+          =================================
+
+
+          index.html必须独立运行。
+
+
+          CSS：
+
+          内嵌。
+
+
+          JavaScript：
+
+          内嵌。
+
+
+          禁止：
+
+          CDN
+
+          外部CSS
+
+          外部JS
+
+
+
+          SVG：
+
+          使用：
+
+          ./shape1.svg
+
+
+          不转换PNG。
+
+
+
+          =================================
+
+          完成检查
+
+          =================================
+
+
+          output必须包含：
+
+
+          shape1.svg
+
+          ...
+
+          shape16.svg
+
+
+          index.html
+
+
+
+          完成后退出。
+
+          "
+
+
+
+      - name: Verify output
+        run: |
+
+          ls -lah output
+
+
+          test -f output/index.html
+
+
+          grep "<html" output/index.html
+
+
+          COUNT=$(find output -name "*.svg" | wc -l)
+
+
+          echo "SVG count: $COUNT"
+
+
+          if [ "$COUNT" -lt 16 ]; then
+            exit 1
+          fi
+
+
+
+      - name: Commit and push
+        run: |
+
+          git config user.name "github-actions[bot]"
+
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+
+          git add output/
+
+
+          if git diff --cached --quiet; then
+
+            echo "No changes"
+
+            exit 0
+
+          fi
+
+
+          git commit \
+            -m "OpenCode generated SFOS SVG icon collection"
+
+
+          git push

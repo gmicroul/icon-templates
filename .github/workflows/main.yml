@@ -1,17 +1,14 @@
-name: OpenCode sfos icons designer
+name: OpenCode SFOS Icon Designer
 
 on:
   workflow_dispatch:
-
-  # schedule:
-  #   - cron: "0 */2 * * *"
 
 permissions:
   contents: write
 
 jobs:
 
-  build:
+  design:
 
     runs-on: ubuntu-latest
     timeout-minutes: 30
@@ -25,40 +22,15 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
 
-      - name: Check games-web
+      - name: Check templates
         run: |
 
-          if [ ! -d "games-web" ]; then
-            echo "games-web directory not found"
+          if [ ! -d "sfos-icons" ]; then
+            echo "sfos-icons directory missing"
             exit 1
           fi
 
-          COUNT=$(find games-web -type f -name "*.html" | wc -l)
-
-          echo "HTML games: $COUNT"
-
-          if [ "$COUNT" -lt 1 ]; then
-            exit 1
-          fi
-
-
-      - name: Download SVG templates
-        run: |
-
-          rm -rf icon-templates
-
-          git clone \
-            --depth 1 \
-            https://github.com/gmicroul/icon-templates.git \
-            icon-templates
-
-
-          if [ ! -d "icon-templates/sfos-icons" ]; then
-            echo "SVG templates missing"
-            exit 1
-          fi
-
-          ls icon-templates/sfos-icons
+          find sfos-icons -name "*.svg"
 
 
       - name: Install OpenCode CLI
@@ -70,22 +42,10 @@ jobs:
 
           export PATH="$HOME/.opencode/bin:$PATH"
 
-          which opencode
-
           opencode --version
 
 
-      - name: Prepare output
-        run: |
-
-          rm -rf output
-
-          mkdir -p output
-
-          chmod 777 output
-
-
-      - name: Run OpenCode
+      - name: Run OpenCode Icon Designer
         run: |
 
           export PATH="$HOME/.opencode/bin:$PATH"
@@ -98,92 +58,35 @@ jobs:
           不执行git操作。
 
 
+
           当前仓库：
 
           $PWD
 
 
 
-          =====================
-          任务
-          =====================
+          你的任务：
 
-
-          生成：
-
-          output/index.html
-
-
-
-          同时为每个游戏生成个性化SVG图标。
-
-
-          SVG模板来源：
-
-          icon-templates/sfos-icons/
-
-
-          仓库：
-
-          https://github.com/gmicroul/icon-templates/tree/main/sfos-icons
+          设计SFOS风格图标集合。
 
 
 
           =====================
-          游戏扫描
-          =====================
 
+          模板要求
 
-          扫描：
-
-          games-web/
-
-
-          所有：
-
-          *.html
-
-
-          按文件路径排序。
-
-
-
-          每个游戏：
-
-          读取html。
-
-
-          提取：
-
-          <title>
-
-
-          作为游戏名称。
-
-
-          没有title：
-
-          使用文件名。
-
-
-
-          游戏链接：
-
-          /games-web/文件名.html
-
-
-
-          =====================
-          图标设计规则
           =====================
 
 
           必须使用：
 
-          icon-templates/sfos-icons/
+          sfos-icons/
 
 
-          中的：
+          里面已有SVG作为基础模板。
+
+
+          模板文件：
 
           shape1.svg
 
@@ -195,141 +98,128 @@ jobs:
 
 
 
-          每个游戏循环选择模板。
+          每个新图标必须基于这些SVG。
 
 
-          不允许创建新的SVG外形。
 
+          不允许：
 
-          不允许重新绘制shape。
+          从零创建SVG。
 
+          改变shape外形。
 
-          不允许修改：
+          删除path。
 
-          path
+          修改viewBox。
 
-          viewBox
-
-          SVG结构
-
-          尺寸比例
+          修改SVG尺寸比例。
 
 
 
           =====================
-          SVG个性化
+
+          创意设计
+
           =====================
 
 
-          每个游戏必须生成独特效果。
+          自由发挥设计。
+
+
+          根据SFOS系统风格：
+
+          - 简洁
+          - 圆润
+          - 高级感
+          - 现代移动UI风格
+
+
+          为每个shape设计不同主题。
+
+
+          可以设计：
+
+          科技
+
+          游戏
+
+          多媒体
+
+          系统工具
+
+          网络
+
+          AI
+
+          未来风格
+
+
+
+          =====================
+
+          SVG修改规则
+
+          =====================
 
 
           只能修改：
 
-          原SVG里面黑色区域。
+          原SVG黑色区域。
 
 
-          黑色区域：
 
-          fill可以替换。
+          黑色区域可以：
+
+          - 改颜色
+          - 使用gradient
+          - 增加光泽
+          - 增加细节纹理
 
 
           非黑色区域：
 
-          必须保持完全透明。
+          必须保持透明。
 
 
           禁止：
 
           添加背景。
 
-          添加矩形。
+          添加底板。
 
-          添加圆形底板。
+          添加矩形填充透明区域。
 
-          修改透明区域。
-
-          修改原始路径。
-
-
-
-          图标尺寸：
-
-          86x86
+          破坏原始透明结构。
 
 
 
           =====================
-          游戏主题颜色
+
+          渐变要求
+
           =====================
 
 
-          根据游戏名称和html内容判断主题。
-
-
-          为每个游戏选择不同颜色方案。
-
-
-          黑色区域允许使用：
+          推荐使用：
 
           linearGradient
 
+
+          方向：
+
+          x1=0
+
+          y1=0
+
+          x2=1
+
+          y2=1
+
+
+
+          高光：
+
           radialGradient
-
-          纯色fill
-
-
-
-          保留SFOS风格。
-
-
-          颜色应该：
-
-          明亮。
-
-          现代。
-
-          游戏化。
-
-
-
-          示例：
-
-          科幻游戏：
-
-          蓝色/紫色
-
-
-          森林游戏：
-
-          绿色
-
-
-          火焰游戏：
-
-          红橙色
-
-
-          水相关：
-
-          青蓝色
-
-
-
-          =====================
-          高光效果
-          =====================
-
-
-          可以增加高光。
-
-
-          只能作用于：
-
-          原黑色区域。
-
-
-          radialGradient:
 
 
           cx=0.25
@@ -340,200 +230,58 @@ jobs:
 
 
 
-          白色：
+          白色高光：
 
           #FFFFFF
 
 
           opacity:
 
-          0.55 -> 0
-
-
-
-          不允许覆盖透明区域。
+          0.55 到 0
 
 
 
           =====================
-          Logo文字
+
+          输出
+
           =====================
 
 
-          如果游戏html没有logo图片：
+          将设计完成的SVG保存回：
 
-          使用游戏名称首字母。
-
-
-
-          文字：
-
-          x=43
-
-          y=47
+          sfos-icons/
 
 
+          保持：
 
-          居中。
+          shape1.svg
 
+          shape2.svg
 
-          字体：
+          ...
 
-          system-ui
-
-
-          bold
-
-
-          29px
-
-
-          颜色：
-
-          #FFFFFF
+          shape16.svg
 
 
 
-          文字只能放在：
-
-          原黑色区域范围内。
+          文件名不改变。
 
 
 
           =====================
-          图标嵌入
-          =====================
 
-
-          所有SVG必须：
-
-          直接内嵌到：
-
-          output/index.html
-
-
-
-          禁止：
-
-          外部svg文件。
-
-          base64图片。
-
-          CDN。
-
-
+          质量要求
 
           =====================
-          页面设计
-          =====================
 
 
-          创建现代SFOS风格游戏大厅。
+          每个SVG：
 
-
-
-          必须包含：
-
-
-          手机：
-
-          两列布局。
-
-
-
-          PC：
-
-          自适应多列布局。
-
-
-
-          功能：
-
-
-          搜索框。
-
-
-          实时过滤。
-
-
-          游戏数量统计。
-
-
-          点击卡片打开游戏。
-
-
-
-          卡片：
-
-          手机尺寸：
-
-          108x108px
-
-
-
-          图标：
-
-          86x86px
-
-
-
-          圆角：
-
-          20px
-
-
-
-          =====================
-          技术限制
-          =====================
-
-
-          output/index.html必须独立运行。
-
-
-
-          CSS：
-
-          内嵌。
-
-
-
-          JavaScript：
-
-          内嵌。
-
-
-
-          禁止：
-
-          CDN。
-
-          外部JS。
-
-          外部CSS。
-
-
-
-          =====================
-          文件保护
-          =====================
-
-
-          不修改：
-
-          games-web/
-
-
-          不删除：
-
-          任何文件。
-
-
-
-          只生成：
-
-          output/index.html
-
+          - 可以直接用于SailfishOS图标
+          - 保持透明背景
+          - 保持原shape轮廓
+          - 视觉统一
 
 
           完成后退出。
@@ -541,24 +289,17 @@ jobs:
           "
 
 
-      - name: Verify
+      - name: Verify SVG
         run: |
 
-          ls -lah output
+          find sfos-icons -name "*.svg" -type f | sort
 
-          test -f output/index.html
+          COUNT=$(find sfos-icons -name "*.svg" | wc -l)
 
-          grep "<html" output/index.html
-
-          grep "games-web" output/index.html
+          echo "SVG count: $COUNT"
 
 
-          COUNT=$(find games-web -type f -name "*.html" | wc -l)
-
-          echo "Games: $COUNT"
-
-
-          if [ "$COUNT" -lt 1 ]; then
+          if [ "$COUNT" -lt 16 ]; then
             exit 1
           fi
 
@@ -571,7 +312,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
 
-          git add output/index.html
+          git add sfos-icons
 
 
           if git diff --cached --quiet; then
@@ -584,7 +325,7 @@ jobs:
 
 
           git commit \
-            -m "Update OpenCode generated SFOS game icons"
+            -m "OpenCode redesigned SFOS icon templates"
 
 
           git push

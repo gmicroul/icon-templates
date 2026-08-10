@@ -1,16 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="86" height="86" viewBox="0 0 86 86" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="g15" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#FFE08A"/>
-      <stop offset="0.55" stop-color="#FFC14D"/>
-      <stop offset="1" stop-color="#D99A1F"/>
+    <clipPath id="shape">
+      <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z M 43 86 A 43.0 43.0 0 0 1 0.0 43.0 L 0 86 Z M 86 43 A 43.0 43.0 0 0 1 43.0 86.0 L 86 86 Z" fill-rule="evenodd"/>
+    </clipPath>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4FC3F7"/>
+      <stop offset="50%" stop-color="#0288D1"/>
+      <stop offset="100%" stop-color="#0D47A1"/>
     </linearGradient>
-    <radialGradient id="h15" cx="0.25" cy="0.25" r="0.6">
-      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.55"/>
-      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    <radialGradient id="moon" cx="0.7" cy="0.28" r="0.42">
+      <stop offset="0%" stop-color="#E1F5FE" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#E1F5FE" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z M 43 86 A 43.0 43.0 0 0 1 0.0 43.0 L 0 86 Z M 86 43 A 43.0 43.0 0 0 1 43.0 86.0 L 86 86 Z" fill="url(#g15)" fill-rule="evenodd"/>
-  <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z M 43 86 A 43.0 43.0 0 0 1 0.0 43.0 L 0 86 Z M 86 43 A 43.0 43.0 0 0 1 43.0 86.0 L 86 86 Z" fill="url(#h15)" fill-rule="evenodd"/>
+  <g clip-path="url(#shape)">
+    <rect width="86" height="86" fill="url(#bg)"/>
+    <circle cx="62" cy="24" r="26" fill="url(#moon)"/>
+    <circle cx="62" cy="24" r="7" fill="#E1F5FE" opacity="0.9"/>
+    <g fill="none" stroke="#B3E5FC" stroke-width="1.2" opacity="0.7">
+      <path d="M -4 40 Q 9 33 22 40 T 48 40 T 74 40 T 90 40"/>
+      <path d="M -4 52 Q 9 45 22 52 T 48 52 T 74 52 T 90 52"/>
+      <path d="M -4 64 Q 9 57 22 64 T 48 64 T 74 64 T 90 64"/>
+      <path d="M -4 76 Q 9 69 22 76 T 48 76 T 74 76 T 90 76"/>
+      <path d="M -4 88 Q 9 81 22 88 T 48 88 T 74 88 T 90 88"/>
+    </g>
+    <g fill="#E1F5FE" opacity="0.8">
+      <path d="M 6 24 Q 9 21 12 24 Q 9 27 6 24 Z"/>
+      <path d="M 24 18 Q 27 15 30 18 Q 27 21 24 18 Z"/>
+      <path d="M 38 28 Q 41 25 44 28 Q 41 31 38 28 Z"/>
+      <path d="M 78 12 Q 81 9 84 12 Q 81 15 78 12 Z"/>
+    </g>
+  </g>
 </svg>

@@ -1,16 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="86" height="86" viewBox="0 0 86 86" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="g11" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#6FD4FF"/>
-      <stop offset="0.55" stop-color="#36A9F0"/>
-      <stop offset="1" stop-color="#1E6FC2"/>
+    <clipPath id="shape">
+      <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z M 86 43 A 43.0 43.0 0 0 1 43.0 86.0 L 86 86 Z" fill-rule="evenodd"/>
+    </clipPath>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#B39DDB"/>
+      <stop offset="55%" stop-color="#7E57C2"/>
+      <stop offset="100%" stop-color="#311B92"/>
     </linearGradient>
-    <radialGradient id="h11" cx="0.25" cy="0.25" r="0.6">
-      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.55"/>
-      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFD54F"/>
+      <stop offset="45%" stop-color="#FFF176"/>
+      <stop offset="100%" stop-color="#FF8F00"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.3" cy="0.45" r="0.55">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z M 86 43 A 43.0 43.0 0 0 1 43.0 86.0 L 86 86 Z" fill="url(#g11)" fill-rule="evenodd"/>
-  <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z M 86 43 A 43.0 43.0 0 0 1 43.0 86.0 L 86 86 Z" fill="url(#h11)" fill-rule="evenodd"/>
+  <g clip-path="url(#shape)">
+    <rect width="86" height="86" fill="url(#bg)"/>
+    <g fill="none" stroke-width="2.4" opacity="0.85">
+      <circle cx="34" cy="42" r="26" stroke="url(#ring)"/>
+      <circle cx="34" cy="42" r="15" stroke="#FFF176" stroke-width="3.2"/>
+      <circle cx="34" cy="42" r="6.5" stroke="#FFD54F" stroke-width="2.2"/>
+    </g>
+    <circle cx="34" cy="42" r="2.6" fill="#FFF9C4"/>
+    <circle cx="58" cy="20" r="1.4" fill="#FFF176" opacity="0.8"/>
+    <circle cx="70" cy="56" r="1.2" fill="#FFF176" opacity="0.6"/>
+    <circle cx="20" cy="66" r="1.5" fill="#FFFFFF" opacity="0.55"/>
+    <circle cx="10" cy="20" r="1.2" fill="#FFFFFF" opacity="0.5"/>
+    <rect width="86" height="86" fill="url(#glow)"/>
+  </g>
 </svg>

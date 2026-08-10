@@ -1,16 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="86" height="86" viewBox="0 0 86 86" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="g4" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#6C7DFF"/>
-      <stop offset="0.55" stop-color="#4A54D0"/>
-      <stop offset="1" stop-color="#2E3A96"/>
+    <clipPath id="shape">
+      <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 0 43 A 43.0 43.0 0 0 1 43.0 0.0 L 0 0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z" fill-rule="evenodd"/>
+    </clipPath>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FAFAFA"/>
+      <stop offset="40%" stop-color="#B0BEC5"/>
+      <stop offset="100%" stop-color="#546E7A"/>
     </linearGradient>
-    <radialGradient id="h4" cx="0.25" cy="0.25" r="0.6">
-      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.55"/>
-      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
-    </radialGradient>
+    <pattern id="brush1" width="2.4" height="86" patternUnits="userSpaceOnUse">
+      <line x1="1.2" y1="0" x2="1.2" y2="86" stroke="#FFFFFF" stroke-width="0.4" opacity="0.25"/>
+    </pattern>
+    <pattern id="brush2" width="3.4" height="86" patternUnits="userSpaceOnUse" x="1.1">
+      <line x1="1.7" y1="0" x2="1.7" y2="86" stroke="#263238" stroke-width="0.35" opacity="0.12"/>
+    </pattern>
+    <linearGradient id="shine" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
   </defs>
-  <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 0 43 A 43.0 43.0 0 0 1 43.0 0.0 L 0 0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z" fill="url(#g4)" fill-rule="evenodd"/>
-  <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 0 43 A 43.0 43.0 0 0 1 43.0 0.0 L 0 0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z" fill="url(#h4)" fill-rule="evenodd"/>
+  <g clip-path="url(#shape)">
+    <rect width="86" height="86" fill="url(#bg)"/>
+    <rect width="86" height="86" fill="url(#brush1)"/>
+    <rect width="86" height="86" fill="url(#brush2)"/>
+    <rect width="86" height="86" fill="url(#shine)"/>
+    <rect y="60" width="86" height="6" fill="#FFFFFF" opacity="0.18"/>
+    <rect y="68" width="86" height="2.5" fill="#37474F" opacity="0.14"/>
+  </g>
 </svg>

@@ -1,16 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="86" height="86" viewBox="0 0 86 86" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="g8" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#FFD54F"/>
-      <stop offset="0.55" stop-color="#FFB300"/>
-      <stop offset="1" stop-color="#E08600"/>
+    <clipPath id="shape">
+      <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 0 43 A 43.0 43.0 0 0 1 43.0 0.0 L 0 0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z M 43 86 A 43.0 43.0 0 0 1 0.0 43.0 L 0 86 Z" fill-rule="evenodd"/>
+    </clipPath>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FF8A65"/>
+      <stop offset="55%" stop-color="#F4511E"/>
+      <stop offset="100%" stop-color="#B71C1C"/>
     </linearGradient>
-    <radialGradient id="h8" cx="0.25" cy="0.25" r="0.6">
-      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.55"/>
-      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
-    </radialGradient>
+    <linearGradient id="cut" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
   </defs>
-  <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 0 43 A 43.0 43.0 0 0 1 43.0 0.0 L 0 0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z M 43 86 A 43.0 43.0 0 0 1 0.0 43.0 L 0 86 Z" fill="url(#g8)" fill-rule="evenodd"/>
-  <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 0 43 A 43.0 43.0 0 0 1 43.0 0.0 L 0 0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z M 43 86 A 43.0 43.0 0 0 1 0.0 43.0 L 0 86 Z" fill="url(#h8)" fill-rule="evenodd"/>
+  <g clip-path="url(#shape)">
+    <rect width="86" height="86" fill="url(#bg)"/>
+    <path d="M 43 43 L 86 43 L 86 86 L 43 86 Z" fill="url(#cut)"/>
+    <g stroke="#FFCCBC" stroke-width="1.1" fill="none" opacity="0.7">
+      <path d="M 43 0 L 86 43"/>
+      <path d="M 43 43 L 86 86"/>
+      <path d="M 0 43 L 43 86"/>
+      <path d="M 0 86 L 43 43"/>
+    </g>
+    <g fill="#FFEBEE">
+      <circle cx="64" cy="22" r="2"/>
+      <circle cx="22" cy="64" r="2"/>
+      <circle cx="64" cy="64" r="2.6"/>
+      <circle cx="75" cy="52" r="1.6"/>
+      <circle cx="52" cy="75" r="1.6"/>
+    </g>
+    <path d="M 43 43 L 86 43 L 64.5 64.5 Z" fill="#FFFFFF" opacity="0.18"/>
+    <path d="M 43 43 L 43 86 L 64.5 64.5 Z" fill="#000000" opacity="0.12"/>
+  </g>
 </svg>

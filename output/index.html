@@ -3,140 +3,174 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sailfish OS Icon Set</title>
+<title>Clash Verge Icons · SFOS Templates</title>
 <style>
   :root {
-    --bg: #10141f;
-    --card: #1b2231;
-    --card-2: #202a3c;
-    --text: #dbe4f5;
-    --muted: #8494b0;
-    --accent: #43d9ff;
-    --radius: 20px;
+    --bg: #0d1117;
+    --bg-2: #161b22;
+    --card: #1c2430;
+    --card-2: #212a38;
+    --line: rgba(255,255,255,0.08);
+    --text: #e6edf3;
+    --text-dim: #8b949e;
+    --accent: #4db8ff;
+    --accent-2: #37e0a5;
+    --shadow: 0 10px 30px rgba(0,0,0,0.45);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     background:
-      radial-gradient(1200px 600px at 50% -10%, #1b2440 0%, transparent 60%),
-      var(--bg);
+      radial-gradient(1200px 600px at 20% -10%, rgba(77,184,255,0.12), transparent 60%),
+      radial-gradient(1000px 500px at 90% 110%, rgba(55,224,165,0.08), transparent 60%),
+      linear-gradient(160deg, var(--bg) 0%, var(--bg-2) 100%);
     color: var(--text);
-    min-height: 100vh;
-    padding: 48px 24px;
+    font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    padding: 32px 20px 48px;
+    min-height: 100%;
   }
+  .page { max-width: 900px; margin: 0 auto; }
   header {
     text-align: center;
-    margin-bottom: 44px;
+    margin-bottom: 32px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--line);
   }
-  header .eyebrow {
-    color: var(--accent);
-    font-size: 12px;
-    letter-spacing: 4px;
+  header .pill {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    opacity: .85;
+    color: var(--accent);
+    border: 1px solid rgba(77,184,255,0.35);
+    border-radius: 999px;
+    padding: 6px 14px;
+    margin-bottom: 14px;
+    background: rgba(77,184,255,0.06);
   }
   header h1 {
-    font-size: 30px;
+    font-size: 26px;
     font-weight: 600;
-    letter-spacing: 1px;
-    margin: 10px 0 8px;
-    background: linear-gradient(90deg, #43d9ff, #9b7bff, #43d9ff);
+    letter-spacing: 0.5px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  header p { color: var(--muted); font-size: 14px; }
+  header p {
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--text-dim);
+  }
   .grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    max-width: 520px;
-    margin: 0 auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
   }
   .card {
-    background: linear-gradient(160deg, var(--card-2), var(--card));
-    border: 1px solid rgba(120, 150, 210, 0.12);
-    border-radius: var(--radius);
-    padding: 24px 16px 18px;
+    background: linear-gradient(180deg, var(--card-2), var(--card));
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 22px 12px 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 14px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
-    transition: transform .28s cubic-bezier(.2,.8,.3,1), box-shadow .28s ease, border-color .28s ease;
+    gap: 12px;
     cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+    transition: transform 0.28s cubic-bezier(0.2, 0.9, 0.3, 1.2), box-shadow 0.28s ease, border-color 0.28s ease;
   }
   .card:hover {
     transform: translateY(-6px) scale(1.04);
-    border-color: rgba(67, 217, 255, 0.35);
-    box-shadow: 0 18px 46px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(67, 217, 255, 0.08), 0 0 30px rgba(67, 217, 255, 0.12);
+    box-shadow: var(--shadow);
+    border-color: rgba(77,184,255,0.35);
   }
-  .icon {
+  .card .stage {
+    width: 92px;
+    height: 92px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background: radial-gradient(120px 120px at 50% 30%, rgba(255,255,255,0.05), rgba(0,0,0,0.25));
+  }
+  .card img {
     width: 86px;
     height: 86px;
-    border-radius: 14px;
-    filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.4));
-    transition: transform .28s cubic-bezier(.2,.8,.3,1);
+    display: block;
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.5));
+    transition: transform 0.28s ease, filter 0.28s ease;
   }
-  .card:hover .icon { transform: scale(1.08); }
-  .name {
+  .card:hover img { transform: scale(1.08); filter: drop-shadow(0 10px 18px rgba(0,0,0,0.6)); }
+  .card .name {
     font-size: 13px;
     font-weight: 500;
-    letter-spacing: .5px;
     color: var(--text);
+    text-align: center;
+    line-height: 1.4;
   }
-  .index {
-    font-size: 11px;
-    color: var(--muted);
+  .card .tag {
+    font-size: 10px;
     letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-dim);
   }
-  @media (min-width: 720px) {
-    .grid {
-      grid-template-columns: repeat(4, 1fr);
-      max-width: 920px;
-    }
-    header h1 { font-size: 36px; }
+  footer {
+    margin-top: 34px;
+    text-align: center;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.5px;
+  }
+  @media (min-width: 700px) {
+    .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    header h1 { font-size: 32px; }
+  }
+  @media (min-width: 980px) {
+    .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   }
 </style>
 </head>
 <body>
-  <header>
-    <div class="eyebrow">Sailfish OS</div>
-    <h1>Icon Template Series</h1>
-    <p>16 individually designed shapes &middot; 86 &times; 86</p>
-  </header>
-  <main class="grid" id="grid"></main>
+  <div class="page">
+    <header>
+      <div class="pill">Sailfish OS · Clash Verge</div>
+      <h1>Clash Verge 风格图标集</h1>
+      <p>基于 sfos-icons 模板 · 16 款独立设计纹理</p>
+    </header>
+    <div class="grid" id="grid"></div>
+    <footer>SVG · 86 × 86 · 全部纹理限定在原始黑色区域内</footer>
+  </div>
 <script>
-  (function () {
-    var icons = [
-      { file: "shape1.svg", name: "Shape 1", tag: "Tech Circuit" },
-      { file: "shape2.svg", name: "Shape 2", tag: "Hexagon Honeycomb" },
-      { file: "shape3.svg", name: "Shape 3", tag: "Metal Brush" },
-      { file: "shape4.svg", name: "Shape 4", tag: "Glass Refraction" },
-      { file: "shape5.svg", name: "Shape 5", tag: "Energy Rays" },
-      { file: "shape6.svg", name: "Shape 6", tag: "Nebula Particles" },
-      { file: "shape7.svg", name: "Shape 7", tag: "AI Future Grid" },
-      { file: "shape8.svg", name: "Shape 8", tag: "Geometric Split" },
-      { file: "shape9.svg", name: "Shape 9", tag: "Micro Dot Grid" },
-      { file: "shape10.svg", name: "Shape 10", tag: "Water Ripples" },
-      { file: "shape11.svg", name: "Shape 11", tag: "Halo Rings" },
-      { file: "shape12.svg", name: "Shape 12", tag: "Aurora Ribbons" },
-      { file: "shape13.svg", name: "Shape 13", tag: "Circuit Board" },
-      { file: "shape14.svg", name: "Shape 14", tag: "Solar Flare" },
-      { file: "shape15.svg", name: "Shape 15", tag: "Holographic Gem" },
-      { file: "shape16.svg", name: "Shape 16", tag: "Cosmic Field" }
-    ];
-    var grid = document.getElementById("grid");
-    var html = "";
-    icons.forEach(function (ic) {
-      html += '<div class="card" title="' + ic.name + '">' +
-        '<img class="icon" src="./' + ic.file + '" alt="' + ic.name + '" loading="lazy">' +
-        '<div class="name">' + ic.tag + '</div>' +
-        '<div class="index">' + ic.name + '</div>' +
-        '</div>';
-    });
-    grid.innerHTML = html;
-  })();
+  const icons = [
+    { file: "shape1.svg",  name: "科技电路", tag: "Square" },
+    { file: "shape2.svg",  name: "蜂巢六边形", tag: "TL Cut" },
+    { file: "shape3.svg",  name: "金属拉丝", tag: "TR Cut" },
+    { file: "shape4.svg",  name: "玻璃折射", tag: "TL·TR Cut" },
+    { file: "shape5.svg",  name: "能量光线", tag: "BL Cut" },
+    { file: "shape6.svg",  name: "星云颗粒", tag: "TL·BL Cut" },
+    { file: "shape7.svg",  name: "AI 未来网格", tag: "TR·BL Cut" },
+    { file: "shape8.svg",  name: "几何切割", tag: "TL·TR·BL Cut" },
+    { file: "shape9.svg",  name: "微型网格", tag: "BR Cut" },
+    { file: "shape10.svg", name: "波纹", tag: "TL·BR Cut" },
+    { file: "shape11.svg", name: "光环", tag: "TR·BR Cut" },
+    { file: "shape12.svg", name: "芯片电路", tag: "TL·TR·BR Cut" },
+    { file: "shape13.svg", name: "星轨", tag: "BL·BR Cut" },
+    { file: "shape14.svg", name: "蜂巢", tag: "TL·BL·BR Cut" },
+    { file: "shape15.svg", name: "扫描线", tag: "TR·BL·BR Cut" },
+    { file: "shape16.svg", name: "棱镜全息", tag: "四角切" }
+  ];
+  const grid = document.getElementById("grid");
+  icons.forEach((item, i) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML =
+      '<div class="stage"><img src="./' + item.file + '" alt="' + item.name + '"></div>' +
+      '<div class="tag">#' + String(i + 1).padStart(2, "0") + " · " + item.tag + '</div>' +
+      '<div class="name">' + item.name + '</div>';
+    grid.appendChild(card);
+  });
 </script>
 </body>
 </html>

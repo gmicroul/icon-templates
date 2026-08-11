@@ -1,47 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="86" height="86" viewBox="0 0 86 86" xmlns="http://www.w3.org/2000/svg">
+  <!-- mask=0000 去掉0个圆缺: square -->
   <defs>
-    <clipPath id="clip-shape1"><path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z" clip-rule="evenodd"/></clipPath>
-    <linearGradient id="base1" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0A1733"/>
-      <stop offset="0.55" stop-color="#12407E"/>
-      <stop offset="1" stop-color="#081F45"/>
+    <clipPath id="shape" clipPathUnits="userSpaceOnUse">
+      <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z" clip-rule="evenodd"/>
+    </clipPath>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b2a4d"/>
+      <stop offset="0.55" stop-color="#0d4b8b"/>
+      <stop offset="1" stop-color="#1287c9"/>
     </linearGradient>
-    <linearGradient id="trace1" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#00E5FF"/>
-      <stop offset="1" stop-color="#2979FF"/>
+    <linearGradient id="trace" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#67e8f9"/>
+      <stop offset="1" stop-color="#3b82f6"/>
     </linearGradient>
-    <radialGradient id="glow1" cx="0.25" cy="0.25" r="0.6">
-      <stop offset="0" stop-color="#4FC3F7" stop-opacity="0.5"/>
-      <stop offset="1" stop-color="#4FC3F7" stop-opacity="0"/>
+    <radialGradient id="core" cx="0.25" cy="0.25" r="0.6">
+      <stop offset="0" stop-color="#bff3ff" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#67e8f9" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="hl1" cx="0.25" cy="0.25" r="0.6">
+    <linearGradient id="hi" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.55"/>
+      <stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0.12"/>
       <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
-    </radialGradient>
-    <pattern id="grid1" width="14" height="14" patternUnits="userSpaceOnUse">
-      <path d="M 14 0.5 H 0.5 V 14" fill="none" stroke="#0AFFE0" stroke-opacity="0.2" stroke-width="0.5"/>
-    </pattern>
+    </linearGradient>
   </defs>
-  <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z" fill="url(#base1)" fill-rule="evenodd"/>
-  <g clip-path="url(#clip-shape1)">
-    <rect x="0" y="0" width="86" height="86" fill="url(#grid1)"/>
-    <path d="M 6 78 L 30 54 H 42 L 50 46 H 62 M 20 8 L 20 22 H 34 L 44 32 M 70 14 L 70 26 H 60 L 52 34 M 56 80 L 66 70 H 80 M 8 20 V 8 H 20" fill="none" stroke="url(#trace1)" stroke-width="1.4" stroke-linecap="round"/>
-    <g fill="#AEEAFF" opacity="0.95">
-      <circle cx="6" cy="78" r="2.2"/>
-      <circle cx="20" cy="8" r="2.2"/>
-      <circle cx="70" cy="14" r="2.2"/>
-      <circle cx="56" cy="80" r="2.2"/>
-      <circle cx="42" cy="54" r="1.6"/>
-      <circle cx="62" cy="46" r="1.6"/>
-      <circle cx="34" cy="22" r="1.6"/>
-      <circle cx="44" cy="32" r="1.6"/>
-      <circle cx="60" cy="26" r="1.6"/>
-      <circle cx="52" cy="34" r="1.6"/>
-      <circle cx="66" cy="70" r="1.6"/>
-      <circle cx="80" cy="26" r="1.6"/>
+  <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z" fill="#000000" fill-rule="evenodd"/>
+  <g clip-path="url(#shape)">
+    <rect width="86" height="86" fill="url(#bg)"/>
+    <rect width="86" height="86" fill="url(#core)"/>
+    <g fill="none" stroke="url(#trace)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 12 12 H 40 L 46 18 H 72"/>
+      <path d="M 12 30 H 34 L 40 36 H 72"/>
+      <path d="M 12 48 H 24 L 30 54 H 46 L 52 60 H 72"/>
+      <path d="M 12 66 H 22 L 28 72 H 72"/>
+      <path d="M 30 12 V 30"/>
+      <path d="M 58 36 V 54"/>
+      <path d="M 58 60 V 72"/>
+      <path d="M 62 72 A 6 6 0 0 0 74 72"/>
+      <path d="M 40 18 A 5 5 0 0 0 40 28"/>
     </g>
-    <circle cx="43" cy="43" r="34" fill="url(#glow1)"/>
-    <rect x="0" y="0" width="86" height="86" fill="url(#hl1)"/>
+    <g fill="#a5f3fc">
+      <circle cx="12" cy="12" r="2.6"/>
+      <circle cx="30" cy="12" r="2.6"/>
+      <circle cx="58" cy="12" r="2.6"/>
+      <circle cx="72" cy="18" r="2.6"/>
+      <circle cx="12" cy="30" r="2.6"/>
+      <circle cx="72" cy="36" r="2.6"/>
+      <circle cx="24" cy="48" r="2.6"/>
+      <circle cx="46" cy="54" r="2.6"/>
+      <circle cx="72" cy="60" r="2.6"/>
+      <circle cx="12" cy="66" r="2.6"/>
+      <circle cx="22" cy="66" r="2.6"/>
+      <circle cx="58" cy="54" r="2.6"/>
+      <circle cx="58" cy="60" r="2.6"/>
+      <circle cx="72" cy="72" r="2.6"/>
+      <circle cx="34" cy="48" r="2.6"/>
+    </g>
+    <g fill="#67e8f9" opacity="0.85">
+      <circle cx="30" cy="21" r="3.2"/>
+      <circle cx="58" cy="45" r="3.2"/>
+      <circle cx="45" cy="60" r="3.2"/>
+    </g>
+    <rect width="86" height="86" fill="url(#hi)"/>
   </g>
 </svg>

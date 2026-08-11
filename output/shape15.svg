@@ -1,45 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="86" height="86" viewBox="0 0 86 86" xmlns="http://www.w3.org/2000/svg">
+  <!-- mask=1110 去掉3个圆缺: TRBLBR -->
   <defs>
-    <clipPath id="clip-shape15"><path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z M 43 86 A 43.0 43.0 0 0 1 0.0 43.0 L 0 86 Z M 86 43 A 43.0 43.0 0 0 1 43.0 86.0 L 86 86 Z" clip-rule="evenodd"/></clipPath>
-    <linearGradient id="holog15" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#6A0FFF"/>
-      <stop offset="0.3" stop-color="#2979FF"/>
-      <stop offset="0.55" stop-color="#00E5FF"/>
-      <stop offset="0.8" stop-color="#B44FE0"/>
-      <stop offset="1" stop-color="#F65CC8"/>
+    <clipPath id="shape" clipPathUnits="userSpaceOnUse">
+      <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z M 43 86 A 43.0 43.0 0 0 1 0.0 43.0 L 0 86 Z M 86 43 A 43.0 43.0 0 0 1 43.0 86.0 L 86 86 Z" clip-rule="evenodd"/>
+    </clipPath>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#04121f"/>
+      <stop offset="0.55" stop-color="#0a2a40"/>
+      <stop offset="1" stop-color="#0e4b6b"/>
     </linearGradient>
-    <linearGradient id="facet15a" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.5"/>
-      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.05"/>
+    <pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="4" y2="0" stroke="#67e8f9" stroke-opacity="0.14" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="band" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#a5f3fc" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#a5f3fc" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#a5f3fc" stop-opacity="0"/>
     </linearGradient>
-    <linearGradient id="facet15b" x1="0" y1="1" x2="1" y2="0">
-      <stop offset="0" stop-color="#1B0560" stop-opacity="0.55"/>
-      <stop offset="1" stop-color="#1B0560" stop-opacity="0.08"/>
-    </linearGradient>
-    <radialGradient id="glow15" cx="0.5" cy="0.5" r="0.6">
-      <stop offset="0" stop-color="#E5D6FF" stop-opacity="0.5"/>
-      <stop offset="1" stop-color="#E5D6FF" stop-opacity="0"/>
+    <radialGradient id="glow" cx="0.25" cy="0.25" r="0.6">
+      <stop offset="0" stop-color="#67e8f9" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="hl15" cx="0.25" cy="0.25" r="0.6">
+    <linearGradient id="hi" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.55"/>
+      <stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0.1"/>
       <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
-    </radialGradient>
+    </linearGradient>
   </defs>
-  <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z M 43 86 A 43.0 43.0 0 0 1 0.0 43.0 L 0 86 Z M 86 43 A 43.0 43.0 0 0 1 43.0 86.0 L 86 86 Z" fill="url(#holog15)" fill-rule="evenodd"/>
-  <g clip-path="url(#clip-shape15)">
-    <polygon points="43,8 60,43 43,78 26,43" fill="url(#facet15a)"/>
-    <polygon points="60,43 86,0 86,86" fill="url(#facet15b)"/>
-    <polygon points="26,43 0,0 0,86" fill="url(#facet15b)"/>
-    <polygon points="26,43 60,43 60,78 26,78" fill="url(#facet15a)"/>
-    <path d="M 43 8 L 43 78 M 26 43 L 60 43 M 26 43 L 0 0 M 60 43 L 86 0 M 26 43 L 0 86 M 60 43 L 86 86" stroke="#E9F2FF" stroke-opacity="0.6" stroke-width="1" fill="none"/>
-    <g fill="#FFFFFF">
-      <path d="M 43 36 L 46 43 L 43 50 L 40 43 Z"/>
-      <path d="M 62 30 L 64 33 L 62 36 L 60 33 Z"/>
-      <path d="M 24 50 L 26 53 L 24 56 L 22 53 Z"/>
-      <path d="M 30 16 L 31 18 L 30 20 L 29 18 Z"/>
+  <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z M 43 86 A 43.0 43.0 0 0 1 0.0 43.0 L 0 86 Z M 86 43 A 43.0 43.0 0 0 1 43.0 86.0 L 86 86 Z" fill="#000000" fill-rule="evenodd"/>
+  <g clip-path="url(#shape)">
+    <rect width="86" height="86" fill="url(#bg)"/>
+    <rect width="86" height="86" fill="url(#scan)"/>
+    <rect width="86" height="86" fill="url(#glow)"/>
+    <rect x="0" y="32" width="86" height="12" fill="url(#band)"/>
+    <line x1="0" y1="38" x2="86" y2="38" stroke="#a5f3fc" stroke-opacity="0.9" stroke-width="1.2"/>
+    <path d="M 0 12 L 86 64" fill="none" stroke="#ffffff" stroke-opacity="0.1" stroke-width="5"/>
+    <path d="M 0 70 L 86 20" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="4"/>
+    <g fill="#a5f3fc" opacity="0.8">
+      <circle cx="14" cy="18" r="1.1"/>
+      <circle cx="30" cy="54" r="1.2"/>
+      <circle cx="52" cy="24" r="1"/>
+      <circle cx="68" cy="58" r="1.2"/>
+      <circle cx="40" cy="70" r="1.1"/>
+      <circle cx="76" cy="32" r="1"/>
+      <circle cx="22" cy="44" r="1"/>
+      <circle cx="58" cy="72" r="1.1"/>
     </g>
-    <circle cx="43" cy="43" r="30" fill="url(#glow15)"/>
-    <rect x="0" y="0" width="86" height="86" fill="url(#hl15)"/>
+    <rect width="86" height="86" fill="url(#hi)"/>
   </g>
 </svg>

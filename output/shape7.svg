@@ -1,54 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="86" height="86" viewBox="0 0 86 86" xmlns="http://www.w3.org/2000/svg">
+  <!-- mask=0110 去掉2个圆缺: TRBL -->
   <defs>
-    <clipPath id="clip-shape7"><path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z M 43 86 A 43.0 43.0 0 0 1 0.0 43.0 L 0 86 Z" clip-rule="evenodd"/></clipPath>
-    <linearGradient id="base7" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#050A1F"/>
-      <stop offset="0.5" stop-color="#0D2463"/>
-      <stop offset="1" stop-color="#071540"/>
+    <clipPath id="shape" clipPathUnits="userSpaceOnUse">
+      <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z M 43 86 A 43.0 43.0 0 0 1 0.0 43.0 L 0 86 Z" clip-rule="evenodd"/>
+    </clipPath>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1e1b4b"/>
+      <stop offset="0.55" stop-color="#312e81"/>
+      <stop offset="1" stop-color="#6d28d9"/>
     </linearGradient>
-    <radialGradient id="core7" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0" stop-color="#4DD8FF" stop-opacity="0.85"/>
-      <stop offset="0.5" stop-color="#2979FF" stop-opacity="0.3"/>
-      <stop offset="1" stop-color="#2979FF" stop-opacity="0"/>
+    <linearGradient id="beam" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#c7d2fe" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#c7d2fe" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#c7d2fe" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="core" cx="0.25" cy="0.25" r="0.6">
+      <stop offset="0" stop-color="#a5b4fc" stop-opacity="0.8"/>
+      <stop offset="1" stop-color="#6366f1" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="hl7" cx="0.25" cy="0.25" r="0.6">
+    <linearGradient id="hi" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.55"/>
+      <stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0.1"/>
       <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
-    </radialGradient>
-    <pattern id="node7" width="26" height="26" patternUnits="userSpaceOnUse">
-      <circle cx="13" cy="13" r="1.3" fill="#7AE4FF" opacity="0.85"/>
-    </pattern>
+    </linearGradient>
   </defs>
-  <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z M 43 86 A 43.0 43.0 0 0 1 0.0 43.0 L 0 86 Z" fill="url(#base7)" fill-rule="evenodd"/>
-  <g clip-path="url(#clip-shape7)">
-    <g fill="none" stroke="#4DD8FF">
-      <g stroke-opacity="0.35" stroke-width="0.8">
-        <path d="M -10 26 L 96 12"/>
-        <path d="M -10 38 L 96 26"/>
-        <path d="M -10 50 L 96 38"/>
-        <path d="M -10 62 L 96 50"/>
-        <path d="M -10 74 L 96 62"/>
-        <path d="M -10 86 L 96 74"/>
-      </g>
-      <g stroke-opacity="0.45" stroke-width="0.8">
-        <path d="M -10 14 L 96 0"/>
-        <path d="M -10 2 L 96 -12"/>
-      </g>
+  <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 43 0 A 43.0 43.0 0 0 1 86.0 43.0 L 86 0 Z M 43 86 A 43.0 43.0 0 0 1 0.0 43.0 L 0 86 Z" fill="#000000" fill-rule="evenodd"/>
+  <g clip-path="url(#shape)">
+    <rect width="86" height="86" fill="url(#bg)"/>
+    <rect width="86" height="86" fill="url(#core)"/>
+    <g fill="none" stroke="#a5b4fc" stroke-opacity="0.28" stroke-width="0.8">
+      <path d="M 43 6 L -40 86"/>
+      <path d="M 43 6 L -20 86"/>
+      <path d="M 43 6 L 0 86"/>
+      <path d="M 43 6 L 20 86"/>
+      <path d="M 43 6 L 40 86"/>
+      <path d="M 43 6 L 60 86"/>
+      <path d="M 43 6 L 80 86"/>
+      <path d="M 43 6 L 100 86"/>
+      <path d="M 43 6 L 120 86"/>
     </g>
-    <g fill="none" stroke="#7AE4FF" stroke-opacity="0.5" stroke-width="0.7">
-      <path d="M -8 74 L 94 74"/>
-      <path d="M -8 62 L 94 62"/>
-      <path d="M -8 50 L 94 50"/>
-      <path d="M -8 38 L 94 38"/>
-      <path d="M -8 26 L 94 26"/>
-      <path d="M -8 14 L 94 14"/>
-      <path d="M -8 2 L 94 2"/>
-      <path d="M -8 -10 L 94 -10"/>
+    <g fill="none" stroke="#c7d2fe" stroke-opacity="0.18" stroke-width="0.7">
+      <path d="M 0 24 H 86"/>
+      <path d="M 0 40 H 86"/>
+      <path d="M 0 54 H 86"/>
+      <path d="M 0 66 H 86"/>
+      <path d="M 0 76 H 86"/>
+      <path d="M 0 84 H 86"/>
     </g>
-    <rect x="0" y="0" width="86" height="86" fill="url(#node7)"/>
-    <path d="M 43 2 L 48 22 L 68 27 L 48 32 L 43 52 L 38 32 L 18 27 L 38 22 Z" fill="none" stroke="#9FEFFF" stroke-opacity="0.7" stroke-width="1"/>
-    <circle cx="43" cy="43" r="38" fill="url(#core7)"/>
-    <rect x="0" y="0" width="86" height="86" fill="url(#hl7)"/>
+    <g fill="none" stroke="#818cf8" stroke-opacity="0.15" stroke-width="0.7">
+      <path d="M 14 0 V 86"/>
+      <path d="M 28 0 V 86"/>
+      <path d="M 42 0 V 86"/>
+      <path d="M 56 0 V 86"/>
+      <path d="M 70 0 V 86"/>
+    </g>
+    <rect x="0" y="38" width="86" height="3" fill="url(#beam)"/>
+    <g fill="none" stroke="#a5b4fc" stroke-width="1" opacity="0.85">
+      <circle cx="22" cy="30" r="2.2"/>
+      <circle cx="50" cy="48" r="2.2"/>
+      <circle cx="66" cy="20" r="2.2"/>
+      <circle cx="34" cy="66" r="2.2"/>
+      <circle cx="58" cy="76" r="2.2"/>
+    </g>
+    <g fill="#c7d2fe">
+      <circle cx="22" cy="30" r="1"/>
+      <circle cx="50" cy="48" r="1"/>
+      <circle cx="66" cy="20" r="1"/>
+      <circle cx="34" cy="66" r="1"/>
+      <circle cx="58" cy="76" r="1"/>
+    </g>
+    <g fill="none" stroke="#818cf8" stroke-width="0.7" opacity="0.6">
+      <path d="M 22 30 L 50 48"/>
+      <path d="M 22 30 L 34 66"/>
+      <path d="M 50 48 L 58 76"/>
+      <path d="M 66 20 L 50 48"/>
+    </g>
+    <rect width="86" height="86" fill="url(#hi)"/>
   </g>
 </svg>

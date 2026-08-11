@@ -1,36 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="86" height="86" viewBox="0 0 86 86" xmlns="http://www.w3.org/2000/svg">
+  <!-- mask=1001 去掉2个圆缺: TLBR -->
   <defs>
-    <clipPath id="clip-shape10"><path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 0 43 A 43.0 43.0 0 0 1 43.0 0.0 L 0 0 Z M 86 43 A 43.0 43.0 0 0 1 43.0 86.0 L 86 86 Z" clip-rule="evenodd"/></clipPath>
-    <linearGradient id="base10" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#04313D"/>
-      <stop offset="0.5" stop-color="#0B6E78"/>
-      <stop offset="1" stop-color="#06454E"/>
+    <clipPath id="shape" clipPathUnits="userSpaceOnUse">
+      <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 0 43 A 43.0 43.0 0 0 1 43.0 0.0 L 0 0 Z M 86 43 A 43.0 43.0 0 0 1 43.0 86.0 L 86 86 Z" clip-rule="evenodd"/>
+    </clipPath>
+    <radialGradient id="bg" cx="0.25" cy="0.25" r="0.6">
+      <stop offset="0" stop-color="#0d3b66"/>
+      <stop offset="1" stop-color="#081a30"/>
+    </radialGradient>
+    <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7dd3fc"/>
+      <stop offset="1" stop-color="#2563eb"/>
     </linearGradient>
-    <radialGradient id="ripple10" cx="0.5" cy="0.45" r="0.6">
-      <stop offset="0" stop-color="#7DE9E2" stop-opacity="0.55"/>
-      <stop offset="1" stop-color="#7DE9E2" stop-opacity="0"/>
+    <radialGradient id="core" cx="0.5" cy="0.5" r="0.6">
+      <stop offset="0" stop-color="#e0f2fe" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#38bdf8" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="hl10" cx="0.25" cy="0.25" r="0.6">
+    <linearGradient id="hi" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.55"/>
+      <stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0.1"/>
       <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
-    </radialGradient>
+    </linearGradient>
   </defs>
-  <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 0 43 A 43.0 43.0 0 0 1 43.0 0.0 L 0 0 Z M 86 43 A 43.0 43.0 0 0 1 43.0 86.0 L 86 86 Z" fill="url(#base10)" fill-rule="evenodd"/>
-  <g clip-path="url(#clip-shape10)">
-    <g fill="none" stroke="#7DE9E2" stroke-linecap="round">
-      <path d="M 43 43 Q 58 38 66 48" stroke-width="2.2" opacity="0.95"/>
-      <path d="M 43 43 Q 28 48 20 38" stroke-width="2.2" opacity="0.95"/>
-      <path d="M 66 48 Q 74 58 70 68" stroke-width="1.4" opacity="0.6"/>
-      <path d="M 20 38 Q 12 28 16 18" stroke-width="1.4" opacity="0.6"/>
-      <path d="M 43 43 Q 58 30 74 34" stroke-width="1.1" opacity="0.5"/>
-      <path d="M 43 43 Q 28 56 12 52" stroke-width="1.1" opacity="0.5"/>
-      <path d="M 70 68 Q 66 78 52 80" stroke-width="1" opacity="0.45"/>
-      <path d="M 16 18 Q 20 8 34 6" stroke-width="1" opacity="0.45"/>
+  <path d="M 0 0 L 86.0 0 L 86.0 86.0 L 0 86.0 Z M 0 43 A 43.0 43.0 0 0 1 43.0 0.0 L 0 0 Z M 86 43 A 43.0 43.0 0 0 1 43.0 86.0 L 86 86 Z" fill="#000000" fill-rule="evenodd"/>
+  <g clip-path="url(#shape)">
+    <rect width="86" height="86" fill="url(#bg)"/>
+    <circle cx="43" cy="43" r="46" fill="none" stroke="url(#ring)" stroke-width="1.3" opacity="0.3"/>
+    <circle cx="43" cy="43" r="38" fill="none" stroke="url(#ring)" stroke-width="1.2" opacity="0.4"/>
+    <circle cx="43" cy="43" r="30" fill="none" stroke="url(#ring)" stroke-width="1.3" opacity="0.55"/>
+    <circle cx="43" cy="43" r="22" fill="none" stroke="url(#ring)" stroke-width="1.4" opacity="0.7"/>
+    <circle cx="43" cy="43" r="14" fill="none" stroke="url(#ring)" stroke-width="1.6" opacity="0.85"/>
+    <circle cx="43" cy="43" r="6" fill="none" stroke="url(#ring)" stroke-width="2" opacity="0.95"/>
+    <circle cx="43" cy="43" r="10" fill="url(#core)"/>
+    <g fill="#bae6fd" opacity="0.85">
+      <circle cx="25" cy="55" r="1.6"/>
+      <circle cx="60" cy="26" r="1.5"/>
+      <circle cx="50" cy="66" r="1.4"/>
+      <circle cx="70" cy="52" r="1.5"/>
+      <circle cx="18" cy="34" r="1.4"/>
+      <circle cx="68" cy="14" r="1.3"/>
     </g>
-    <circle cx="43" cy="43" r="4" fill="#C4FFF4" opacity="0.95"/>
-    <circle cx="43" cy="43" r="7" fill="none" stroke="#C4FFF4" stroke-opacity="0.55" stroke-width="1"/>
-    <circle cx="43" cy="43" r="34" fill="url(#ripple10)"/>
-    <rect x="0" y="0" width="86" height="86" fill="url(#hl10)"/>
+    <circle cx="61" cy="21" r="2" fill="#e0f2fe"/>
+    <rect width="86" height="86" fill="url(#hi)"/>
   </g>
 </svg>
